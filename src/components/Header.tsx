@@ -43,25 +43,25 @@ const Header = () => {
         isScrolled ? 'bg-white shadow-md' : 'bg-white/95 backdrop-blur-sm'
       }`}
     >
-      <nav className="container-custom px-4 md:px-8">
-        <div className="flex items-center justify-between h-20">
+      <nav className="container-custom px-4 sm:px-6 lg:px-8">
+        <div className="flex items-center justify-between h-16 sm:h-20">
           {/* Logo */}
           <a href="#inicio" className="flex items-center space-x-2" onClick={(e) => handleNavClick(e, '#inicio')}>
             <img
               src="/logo.png"
               alt="Magazine Ferro e Aço - Logo"
-              className="h-12 md:h-16 w-auto object-contain"
+              className="h-10 sm:h-12 md:h-14 lg:h-16 w-auto object-contain"
             />
           </a>
 
           {/* Desktop Menu */}
-          <div className="hidden md:flex items-center space-x-8">
+          <div className="hidden lg:flex items-center space-x-6 xl:space-x-8">
             {menuItems.map((item) => (
               <a
                 key={item.href}
                 href={item.href}
                 onClick={(e) => handleNavClick(e, item.href)}
-                className="text-foreground hover:text-primary font-medium transition-colors duration-300 relative group"
+                className="text-foreground hover:text-primary font-medium text-sm xl:text-base transition-colors duration-300 relative group"
               >
                 {item.label}
                 <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full" />
@@ -71,7 +71,7 @@ const Header = () => {
               href="https://wa.me/5585985971085"
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-primary hover:bg-primary-dark text-primary-foreground px-6 py-2.5 rounded-lg font-medium transition-all duration-300 btn-shadow hover:shadow-xl"
+              className="bg-primary hover:bg-primary-dark text-primary-foreground px-4 xl:px-6 py-2 xl:py-2.5 rounded-lg font-medium text-sm xl:text-base transition-all duration-300 btn-shadow hover:shadow-xl whitespace-nowrap"
             >
               Entre em contato
             </a>
@@ -80,7 +80,7 @@ const Header = () => {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="md:hidden p-2 text-foreground hover:text-primary transition-colors"
+            className="lg:hidden p-2 text-foreground hover:text-primary transition-colors"
             aria-label="Toggle menu"
           >
             {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
@@ -89,14 +89,14 @@ const Header = () => {
 
         {/* Mobile Menu */}
         {isMobileMenuOpen && (
-          <div className="md:hidden py-4 border-t border-border">
+          <div className="lg:hidden py-4 border-t border-border">
             <div className="flex flex-col space-y-4">
               {menuItems.map((item) => (
                 <a
                   key={item.href}
                   href={item.href}
                   onClick={(e) => handleNavClick(e, item.href)}
-                  className="text-foreground hover:text-primary font-medium transition-colors duration-300 py-2"
+                  className="text-foreground hover:text-primary font-medium transition-colors duration-300 py-2 text-base"
                 >
                   {item.label}
                 </a>
@@ -105,7 +105,7 @@ const Header = () => {
                 href="https://wa.me/5585985971085"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="bg-primary hover:bg-primary-dark text-primary-foreground px-6 py-3 rounded-lg font-medium transition-all duration-300 text-center"
+                className="bg-primary hover:bg-primary-dark text-primary-foreground px-6 py-3 rounded-lg font-medium transition-all duration-300 text-center text-base"
               >
                 Entre em contato
               </a>
