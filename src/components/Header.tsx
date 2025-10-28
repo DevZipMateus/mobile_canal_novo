@@ -18,10 +18,16 @@ const Header = () => {
     { label: 'Início', href: '#inicio' },
     { label: 'Sobre', href: '#sobre' },
     { label: 'Serviços', href: '#servicos' },
+    { label: 'Vitrine', href: '/vitrine', isRoute: true },
     { label: 'Contato', href: '#contato' },
   ];
 
-  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string, isRoute?: boolean) => {
+    if (isRoute) {
+      setIsMobileMenuOpen(false);
+      return;
+    }
+    
     e.preventDefault();
     const element = document.querySelector(href);
     if (element) {
@@ -60,7 +66,7 @@ const Header = () => {
               <a
                 key={item.href}
                 href={item.href}
-                onClick={(e) => handleNavClick(e, item.href)}
+                onClick={(e) => handleNavClick(e, item.href, item.isRoute)}
                 className="text-foreground hover:text-primary font-medium text-sm xl:text-base transition-colors duration-300 relative group"
               >
                 {item.label}
@@ -95,7 +101,7 @@ const Header = () => {
                 <a
                   key={item.href}
                   href={item.href}
-                  onClick={(e) => handleNavClick(e, item.href)}
+                  onClick={(e) => handleNavClick(e, item.href, item.isRoute)}
                   className="text-foreground hover:text-primary font-medium transition-colors duration-300 py-2 text-base"
                 >
                   {item.label}
