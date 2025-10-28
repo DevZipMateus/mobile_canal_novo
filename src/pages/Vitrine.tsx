@@ -7,10 +7,16 @@ const Vitrine = () => {
       <Helmet>
         <title>Demonstração de Vitrine - Magazine Ferro e Aço</title>
         <meta name="description" content="Demonstração de vitrine de produtos da Magazine Ferro e Aço" />
+        <style>{`
+          body, html {
+            overflow: hidden !important;
+            height: 100vh;
+          }
+        `}</style>
       </Helmet>
-      <div className="h-screen overflow-hidden bg-background flex flex-col">
+      <div className="fixed inset-0 bg-background flex flex-col">
         <Header />
-        <main className="flex-1 pt-16 sm:pt-20">
+        <main className="flex-1 overflow-hidden" style={{ marginTop: '64px' }}>
           <iframe 
             src="https://v4.egestor.com.br/vitrine/?s=magazineferroeaco" 
             className="w-full h-full"
