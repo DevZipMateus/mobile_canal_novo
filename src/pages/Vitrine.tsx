@@ -8,16 +8,15 @@ const Vitrine = () => {
         <title>Demonstração de Vitrine - Magazine Ferro e Aço</title>
         <meta name="description" content="Demonstração de vitrine de produtos da Magazine Ferro e Aço" />
       </Helmet>
-      <div className="min-h-screen bg-background">
+      <div className="h-screen overflow-hidden bg-background flex flex-col">
         <Header />
-        <main className="pt-16 sm:pt-20">
-          <div className="w-full">
-            <iframe 
-              src="https://v4.egestor.com.br/vitrine/?s=magazineferroeaco" 
-              style={{ width: '100%', height: '800px', border: 'none' }}
-              title="Demonstração de Vitrine"
-            />
-          </div>
+        <main className="flex-1 pt-16 sm:pt-20">
+          <iframe 
+            src="https://v4.egestor.com.br/vitrine/?s=magazineferroeaco" 
+            className="w-full h-full"
+            style={{ border: 'none' }}
+            title="Demonstração de Vitrine"
+          />
         </main>
       </div>
     </>
