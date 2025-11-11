@@ -12,7 +12,7 @@ const About = () => {
               <img
                 src={aboutImage}
                 alt="Depósito Magazine Ferro e Aço"
-                className="w-full h-[300px] sm:h-[400px] lg:h-[500px] object-cover"
+                className="w-full h-[250px] sm:h-[320px] lg:h-[400px] object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
             </div>
