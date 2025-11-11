@@ -1,5 +1,5 @@
 import { Package, Wrench, Truck, CheckCircle } from 'lucide-react';
-import productsImage from '@/assets/products-steel.jpg';
+import productsImage from '@/assets/services-products.jpg';
 
 const Services = () => {
   const products = [
