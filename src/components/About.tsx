@@ -18,7 +18,7 @@ const About = () => {
             </div>
             <div className="absolute -bottom-4 -right-4 sm:-bottom-6 sm:-right-6 bg-primary text-primary-foreground p-4 sm:p-6 rounded-xl shadow-xl">
               <div className="text-center">
-                <div className="text-3xl sm:text-4xl font-bold">6+</div>
+                <div className="text-3xl sm:text-4xl font-bold">8+</div>
                 <div className="text-xs sm:text-sm">Anos de experiência</div>
               </div>
             </div>
