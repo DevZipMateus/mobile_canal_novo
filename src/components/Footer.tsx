@@ -66,7 +66,7 @@ const Footer = () => {
               <li className="flex items-start gap-2 text-sm sm:text-base">
                 <MapPin className="flex-shrink-0 text-primary mt-0.5" size={16} />
                 <span className="text-secondary-foreground/80">
-                  Rua Irmã Vivencia, 26<br />Novo Maranguape, CE
+                  Av Senador Almir Pinto, 1809<br />Novo Maranguape 2, Maranguape - CE
                 </span>
               </li>
               <li className="flex items-center gap-2 text-sm sm:text-base">
