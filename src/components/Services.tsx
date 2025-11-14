@@ -3,7 +3,7 @@ import productsImage from '@/assets/services-products.jpg';
 
 const Services = () => {
   const products = [
-    'Colinas',
+    'Colunas',
     'Vigas',
     'Treliças',
     'Telas',
