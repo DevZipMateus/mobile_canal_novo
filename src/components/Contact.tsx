@@ -5,7 +5,7 @@ const Contact = () => {
     {
       icon: MapPin,
       title: 'Endereço',
-      content: 'Rua Irmã Vivencia, 26 - Novo Maranguape, CE',
+      content: 'Av Senador Almir Pinto, 1809 - Novo Maranguape 2, Maranguape - CE',
     },
     {
       icon: Phone,
