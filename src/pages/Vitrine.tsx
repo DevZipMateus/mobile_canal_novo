@@ -16,7 +16,7 @@ const Vitrine = () => {
       </Helmet>
       <div className="fixed inset-0 bg-background flex flex-col">
         <Header />
-        <main className="flex-1 overflow-hidden" style={{ marginTop: '64px' }}>
+        <main className="flex-1 overflow-hidden mt-16 sm:mt-20">
           <iframe 
             src="https://v4.egestor.com.br/vitrine/?s=magazineferroeaco" 
             className="w-full h-full"
