@@ -21,7 +21,7 @@ const Header = () => {
     { label: 'Início', href: '#inicio' },
     { label: 'Sobre', href: '#sobre' },
     { label: 'Serviços', href: '#servicos' },
-    { label: 'Vitrine', href: '/vitrine', isRoute: true },
+    { label: 'Vitrine', href: '#vitrine' },
     { label: 'Contato', href: '#contato' },
   ];
 
@@ -90,7 +90,7 @@ const Header = () => {
               <a
                 key={item.href}
                 href={item.href}
-                onClick={(e) => handleNavClick(e, item.href, item.isRoute)}
+                onClick={(e) => handleNavClick(e, item.href)}
                 className="text-foreground hover:text-primary font-medium text-sm xl:text-base transition-colors duration-300 relative group"
               >
                 {item.label}
@@ -125,7 +125,7 @@ const Header = () => {
                 <a
                   key={item.href}
                   href={item.href}
-                  onClick={(e) => handleNavClick(e, item.href, item.isRoute)}
+                  onClick={(e) => handleNavClick(e, item.href)}
                   className="text-foreground hover:text-primary font-medium transition-colors duration-300 py-2 text-base"
                 >
                   {item.label}

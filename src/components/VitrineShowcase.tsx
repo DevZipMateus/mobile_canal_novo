@@ -1,9 +1,7 @@
 import { ShoppingBag, Package, Search, CreditCard } from 'lucide-react';
-import { useNavigate } from 'react-router-dom';
 import productsImage from '@/assets/products-steel.jpg';
 
 const VitrineShowcase = () => {
-  const navigate = useNavigate();
 
   const features = [
     {
@@ -58,7 +56,7 @@ const VitrineShowcase = () => {
             </div>
 
             <button
-              onClick={() => navigate('/vitrine')}
+              onClick={() => document.querySelector('#vitrine')?.scrollIntoView({ behavior: 'smooth', block: 'start' })}
               className="inline-flex items-center justify-center bg-primary hover:bg-primary-dark text-primary-foreground px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-300 btn-shadow hover:shadow-xl group mt-4"
             >
               Acessar Vitrine
