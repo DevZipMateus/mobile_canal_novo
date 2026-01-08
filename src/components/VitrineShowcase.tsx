@@ -54,14 +54,6 @@ const VitrineShowcase = () => {
                 </div>
               ))}
             </div>
-
-            <button
-              onClick={() => document.querySelector('#vitrine')?.scrollIntoView({ behavior: 'smooth', block: 'start' })}
-              className="inline-flex items-center justify-center bg-primary hover:bg-primary-dark text-primary-foreground px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-300 btn-shadow hover:shadow-xl group mt-4"
-            >
-              Acessar Vitrine
-              <ShoppingBag className="ml-2 group-hover:scale-110 transition-transform" size={20} />
-            </button>
           </div>
 
           {/* Right Image */}
