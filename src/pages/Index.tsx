@@ -3,6 +3,7 @@ import Hero from '@/components/Hero';
 import About from '@/components/About';
 import Services from '@/components/Services';
 import VitrineShowcase from '@/components/VitrineShowcase';
+import VitrineEmbed from '@/components/VitrineEmbed';
 import Contact from '@/components/Contact';
 import Footer from '@/components/Footer';
 import WhatsAppButton from '@/components/WhatsAppButton';
@@ -16,6 +17,7 @@ const Index = () => {
         <About />
         <Services />
         <VitrineShowcase />
+        <VitrineEmbed />
         <Contact />
       </main>
       <Footer />

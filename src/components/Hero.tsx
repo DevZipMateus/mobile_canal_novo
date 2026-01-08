@@ -1,9 +1,10 @@
 import { ArrowRight, ShoppingBag } from 'lucide-react';
-import { useNavigate } from 'react-router-dom';
 import heroImage from '@/assets/hero-construction.jpg';
 
 const Hero = () => {
-  const navigate = useNavigate();
+  const scrollToVitrine = () => {
+    document.querySelector('#vitrine')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  };
 
   return (
     <section id="inicio" className="relative min-h-[100svh] flex items-center pt-16 sm:pt-20">
@@ -44,7 +45,7 @@ const Hero = () => {
               <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" size={20} />
             </a>
             <button
-              onClick={() => navigate('/vitrine')}
+              onClick={scrollToVitrine}
               className="inline-flex items-center justify-center bg-white/10 hover:bg-white/20 text-white border-2 border-white/60 hover:border-white px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-semibold text-base sm:text-lg transition-all duration-300 backdrop-blur-sm group"
             >
               Ver Vitrine
