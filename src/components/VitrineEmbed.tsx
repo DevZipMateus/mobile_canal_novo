@@ -6,7 +6,7 @@ const VitrineEmbed = () => {
           <iframe 
             src="https://v4.egestor.com.br/vitrine/?s=magazineferroeaco" 
             className="w-full"
-            style={{ border: 'none', height: '3500px', overflow: 'hidden' }}
+            style={{ border: 'none', height: '1800px', overflow: 'hidden' }}
             title="Vitrine de Produtos - Magazine Ferro e Aço"
             scrolling="no"
           />
