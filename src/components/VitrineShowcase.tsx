@@ -37,7 +37,7 @@ const VitrineShowcase = () => {
             </h2>
             
             <p className="text-lg text-muted-foreground leading-relaxed">
-              Acesse nossa vitrine online e consulte todos os produtos disponíveis com preços atualizados. 
+              Confira logo abaixo todos os nossos produtos disponíveis com preços atualizados. 
               Uma maneira rápida e prática de planejar sua compra.
             </p>
 
