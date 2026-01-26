@@ -27,7 +27,7 @@ const Hero = () => {
             Móveis, estofados, colchões e decorações de qualidade para transformar sua casa em um verdadeiro lar
           </h2>
           <p className="text-base sm:text-lg md:text-xl text-white/80 mb-8 sm:mb-10 animate-fade-in leading-relaxed">
-            Seu lugar é aqui!
+            Qualidade, design e conforto para seu lar.
           </p>
           
           <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 animate-fade-in">

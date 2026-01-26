@@ -85,10 +85,10 @@ const Footer = () => {
               <li className="flex items-start gap-2 text-sm sm:text-base">
                 <Mail className="flex-shrink-0 text-white/80 mt-0.5" size={16} />
                 <a
-                  href="mailto:mobilecanal@hotmail.com"
+                  href="mailto:atendimento@mobilecanal.com.br"
                   className="text-secondary-foreground/80 hover:text-white transition-colors break-all"
                 >
-                  mobilecanal@hotmail.com
+                  atendimento@mobilecanal.com.br
                 </a>
               </li>
             </ul>
@@ -101,14 +101,14 @@ const Footer = () => {
               <Clock className="flex-shrink-0 text-white/80 mt-0.5" size={16} />
               <div className="text-sm sm:text-base text-secondary-foreground/80">
                 <p>Seg - Sex: 08:00 - 18:00</p>
-                <p>Sábado: 08:00 - 13:00</p>
+                <p>Sábado: 08:00 - 12:00</p>
               </div>
             </div>
 
             <h3 className="text-base sm:text-lg font-semibold mb-3 sm:mb-4">Siga-nos</h3>
             <div className="flex flex-col gap-2">
               <a
-                href="https://www.instagram.com/mobilecanal"
+                href="https://www.instagram.com/mobilecanal?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 text-secondary-foreground/80 hover:text-white transition-colors text-sm sm:text-base"
