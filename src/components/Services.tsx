@@ -1,8 +1,14 @@
 import { Sofa, Bed, UtensilsCrossed, Palette, ShowerHead, Layers, Truck, Headphones, Wrench } from 'lucide-react';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
+import { motion } from 'framer-motion';
+import { useInView } from 'framer-motion';
+import { useRef } from 'react';
 import productsImage from '@/assets/services-furniture.jpg';
 
 const Services = () => {
+  const sectionRef = useRef(null);
+  const isInView = useInView(sectionRef, { once: true, margin: '-100px' });
+
   const productCategories = [
     {
       icon: Sofa,
@@ -54,42 +60,75 @@ const Services = () => {
     },
   ];
 
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
+  };
+
   return (
-    <section id="produtos" className="section-padding bg-background">
+    <section id="produtos" className="section-padding bg-background" ref={sectionRef}>
       <div className="container-custom px-4 sm:px-6 lg:px-8">
         {/* Header */}
-        <div className="text-center mb-12 sm:mb-16">
+        <motion.div 
+          className="text-center mb-12 sm:mb-16"
+          initial={{ opacity: 0, y: 20 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.6 }}
+        >
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-3 sm:mb-4 text-foreground">
             Nossos produtos e serviços
           </h2>
           <p className="text-base sm:text-lg text-muted-foreground max-w-2xl mx-auto px-4">
             Tudo para transformar sua casa em um lar aconchegante
           </p>
-        </div>
+        </motion.div>
 
         {/* Services Cards */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mb-12 sm:mb-16">
+        <motion.div 
+          className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mb-12 sm:mb-16"
+          variants={containerVariants}
+          initial="hidden"
+          animate={isInView ? "visible" : "hidden"}
+        >
           {services.map((service, index) => {
             const Icon = service.icon;
             return (
-              <div
+              <motion.div
                 key={index}
-                className="bg-card border border-border rounded-xl p-6 sm:p-8 card-hover"
+                className="bg-card border border-border rounded-xl p-6 sm:p-8 group cursor-pointer"
+                variants={itemVariants}
+                whileHover={{ y: -8, boxShadow: '0 20px 40px -15px rgba(0,0,0,0.15)' }}
+                transition={{ type: 'spring', stiffness: 300 }}
               >
-                <div className="w-12 h-12 sm:w-16 sm:h-16 bg-secondary/10 rounded-lg flex items-center justify-center mb-4 sm:mb-6">
+                <div className="w-12 h-12 sm:w-16 sm:h-16 bg-secondary/10 rounded-lg flex items-center justify-center mb-4 sm:mb-6 group-hover:bg-secondary/20 transition-colors">
                   <Icon className="text-secondary" size={28} />
                 </div>
                 <h3 className="text-lg sm:text-xl font-semibold mb-2 sm:mb-3">{service.title}</h3>
                 <p className="text-sm sm:text-base text-muted-foreground">{service.description}</p>
-              </div>
+              </motion.div>
             );
           })}
-        </div>
+        </motion.div>
 
         {/* Products Hero */}
         <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 items-center mb-12 sm:mb-16">
           {/* Products Image */}
-          <div className="relative">
+          <motion.div 
+            className="relative"
+            initial={{ opacity: 0, x: -50 }}
+            animate={isInView ? { opacity: 1, x: 0 } : {}}
+            transition={{ duration: 0.8, delay: 0.2 }}
+          >
             <div className="relative rounded-2xl overflow-hidden shadow-lg">
               <img
                 src={productsImage}
@@ -97,10 +136,14 @@ const Services = () => {
                 className="w-full h-[250px] sm:h-[350px] lg:h-[400px] object-cover"
               />
             </div>
-          </div>
+          </motion.div>
 
           {/* CTA */}
-          <div>
+          <motion.div
+            initial={{ opacity: 0, x: 50 }}
+            animate={isInView ? { opacity: 1, x: 0 } : {}}
+            transition={{ duration: 0.8, delay: 0.3 }}
+          >
             <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold mb-4 sm:mb-6">
               Encontre tudo para o seu lar
             </h3>
@@ -109,19 +152,26 @@ const Services = () => {
               Nossa equipe está pronta para ajudar você a escolher as melhores peças que combinam 
               qualidade, design e conforto.
             </p>
-            <a
+            <motion.a
               href="https://wa.me/5527995059840"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center w-full sm:w-auto bg-secondary hover:bg-secondary/90 text-secondary-foreground px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-semibold text-base transition-all duration-300 btn-shadow hover:shadow-xl"
+              className="inline-flex items-center justify-center w-full sm:w-auto bg-secondary hover:bg-secondary/90 text-secondary-foreground px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-semibold text-base transition-all duration-300 btn-shadow"
+              whileHover={{ scale: 1.02, boxShadow: '0 15px 30px -10px rgba(0,0,0,0.25)' }}
+              whileTap={{ scale: 0.98 }}
             >
               Fale com um consultor
-            </a>
-          </div>
+            </motion.a>
+          </motion.div>
         </div>
 
         {/* Product Categories Accordion */}
-        <div className="max-w-4xl mx-auto">
+        <motion.div 
+          className="max-w-4xl mx-auto"
+          initial={{ opacity: 0, y: 30 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.6, delay: 0.4 }}
+        >
           <h3 className="text-xl sm:text-2xl font-bold mb-6 text-center">Categorias de produtos</h3>
           <Accordion type="multiple" className="space-y-4">
             {productCategories.map((category, index) => {
@@ -143,10 +193,16 @@ const Services = () => {
                   <AccordionContent className="pb-5">
                     <ul className="space-y-2 pl-14 sm:pl-16">
                       {category.items.map((item, itemIndex) => (
-                        <li key={itemIndex} className="text-sm sm:text-base text-muted-foreground flex items-center gap-2">
+                        <motion.li 
+                          key={itemIndex} 
+                          className="text-sm sm:text-base text-muted-foreground flex items-center gap-2"
+                          initial={{ opacity: 0, x: -10 }}
+                          animate={{ opacity: 1, x: 0 }}
+                          transition={{ delay: itemIndex * 0.05 }}
+                        >
                           <span className="w-1.5 h-1.5 bg-secondary rounded-full flex-shrink-0"></span>
                           {item}
-                        </li>
+                        </motion.li>
                       ))}
                     </ul>
                   </AccordionContent>
@@ -154,7 +210,7 @@ const Services = () => {
               );
             })}
           </Accordion>
-        </div>
+        </motion.div>
       </div>
     </section>
   );
