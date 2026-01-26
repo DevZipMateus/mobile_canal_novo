@@ -126,7 +126,7 @@ All colors MUST be HSL.
 
 @layer utilities {
   .section-padding {
-    @apply py-12 sm:py-16 md:py-20 lg:py-24;
+    @apply py-10 sm:py-12 md:py-16 lg:py-20 xl:py-24;
   }
   
   .container-custom {
@@ -143,5 +143,11 @@ All colors MUST be HSL.
   
   .card-hover {
     @apply transition-all duration-300 hover:shadow-lg hover:-translate-y-1;
+  }
+  
+  /* Touch-friendly tap targets for mobile */
+  .touch-manipulation {
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
   }
 }
