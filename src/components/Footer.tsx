@@ -1,4 +1,5 @@
-import { MapPin, Phone, Mail, Clock, Instagram } from 'lucide-react';
+import { MapPin, Phone, Mail, Clock, Instagram, Facebook } from 'lucide-react';
+import logo from '@/assets/logo.png';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -6,7 +7,8 @@ const Footer = () => {
   const quickLinks = [
     { label: 'Início', href: '#inicio' },
     { label: 'Sobre', href: '#sobre' },
-    { label: 'Serviços', href: '#servicos' },
+    { label: 'Produtos', href: '#produtos' },
+    { label: 'Depoimentos', href: '#depoimentos' },
     { label: 'Contato', href: '#contato' },
   ];
 
@@ -32,12 +34,12 @@ const Footer = () => {
           {/* Logo and Description */}
           <div className="sm:col-span-2 lg:col-span-1">
             <img
-              src="/logo.png"
-              alt="Magazine Ferro e Aço"
+              src={logo}
+              alt="Mobile Canal"
               className="h-12 sm:h-14 lg:h-16 w-auto mb-3 sm:mb-4"
             />
             <p className="text-secondary-foreground/80 text-sm sm:text-base leading-relaxed">
-              Construindo confiança, entregando qualidade desde 2018.
+              Seu lugar é aqui! Móveis, estofados, colchões e decorações de qualidade.
             </p>
           </div>
 
@@ -50,7 +52,7 @@ const Footer = () => {
                   <a
                     href={link.href}
                     onClick={(e) => handleNavClick(e, link.href)}
-                    className="text-secondary-foreground/80 hover:text-primary transition-colors text-sm sm:text-base"
+                    className="text-secondary-foreground/80 hover:text-white transition-colors text-sm sm:text-base"
                   >
                     {link.label}
                   </a>
@@ -64,29 +66,29 @@ const Footer = () => {
             <h3 className="text-base sm:text-lg font-semibold mb-3 sm:mb-4">Contato</h3>
             <ul className="space-y-2 sm:space-y-3">
               <li className="flex items-start gap-2 text-sm sm:text-base">
-                <MapPin className="flex-shrink-0 text-primary mt-0.5" size={16} />
+                <MapPin className="flex-shrink-0 text-white/80 mt-0.5" size={16} />
                 <span className="text-secondary-foreground/80">
-                  Av Senador Almir Pinto, 1809<br />Novo Maranguape 2, Maranguape - CE
+                  Av. Arthur Haese, 388<br />Vale das Palmas, Marechal Floriano - ES
                 </span>
               </li>
               <li className="flex items-center gap-2 text-sm sm:text-base">
-                <Phone className="flex-shrink-0 text-primary" size={16} />
+                <Phone className="flex-shrink-0 text-white/80" size={16} />
                 <a
-                  href="https://wa.me/5585985971085"
+                  href="https://wa.me/5527995059840"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-secondary-foreground/80 hover:text-primary transition-colors"
+                  className="text-secondary-foreground/80 hover:text-white transition-colors"
                 >
-                  (85) 98597-1085
+                  (27) 99505-9840
                 </a>
               </li>
               <li className="flex items-start gap-2 text-sm sm:text-base">
-                <Mail className="flex-shrink-0 text-primary mt-0.5" size={16} />
+                <Mail className="flex-shrink-0 text-white/80 mt-0.5" size={16} />
                 <a
-                  href="mailto:magazineferroeaco01@outlook.com"
-                  className="text-secondary-foreground/80 hover:text-primary transition-colors break-all"
+                  href="mailto:mobilecanal@hotmail.com"
+                  className="text-secondary-foreground/80 hover:text-white transition-colors break-all"
                 >
-                  magazineferroeaco01@outlook.com
+                  mobilecanal@hotmail.com
                 </a>
               </li>
             </ul>
@@ -96,23 +98,34 @@ const Footer = () => {
           <div>
             <h3 className="text-base sm:text-lg font-semibold mb-3 sm:mb-4">Horário</h3>
             <div className="flex items-start gap-2 mb-4 sm:mb-6">
-              <Clock className="flex-shrink-0 text-primary mt-0.5" size={16} />
+              <Clock className="flex-shrink-0 text-white/80 mt-0.5" size={16} />
               <div className="text-sm sm:text-base text-secondary-foreground/80">
-                <p>Seg - Sex: 07:00 - 18:00</p>
-                <p>Sábado: 07:00 - 12:00</p>
+                <p>Seg - Sex: 08:00 - 18:00</p>
+                <p>Sábado: 08:00 - 13:00</p>
               </div>
             </div>
 
             <h3 className="text-base sm:text-lg font-semibold mb-3 sm:mb-4">Siga-nos</h3>
-            <a
-              href="https://www.instagram.com/magazine_ferro_e_aco"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 text-secondary-foreground/80 hover:text-primary transition-colors text-sm sm:text-base break-all"
-            >
-              <Instagram size={20} className="flex-shrink-0" />
-              <span>@magazine_ferro_e_aco</span>
-            </a>
+            <div className="flex flex-col gap-2">
+              <a
+                href="https://www.instagram.com/mobilecanal"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 text-secondary-foreground/80 hover:text-white transition-colors text-sm sm:text-base"
+              >
+                <Instagram size={18} className="flex-shrink-0" />
+                <span>@mobilecanal</span>
+              </a>
+              <a
+                href="https://www.facebook.com/MobileCanalMagazine"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 text-secondary-foreground/80 hover:text-white transition-colors text-sm sm:text-base"
+              >
+                <Facebook size={18} className="flex-shrink-0" />
+                <span>Mobile Canal Magazine</span>
+              </a>
+            </div>
           </div>
         </div>
 
@@ -120,10 +133,10 @@ const Footer = () => {
         <div className="border-t border-secondary-foreground/10 mt-10 sm:mt-12 pt-6 sm:pt-8">
           <div className="flex flex-col sm:flex-row justify-between items-center gap-3 sm:gap-4 text-xs sm:text-sm text-secondary-foreground/60 text-center sm:text-left">
             <p>
-              © {currentYear} Magazine Ferro e Aço. Todos os direitos reservados.
+              © {currentYear} Mobile Canal. Todos os direitos reservados.
             </p>
             <p>
-              CNPJ: 30.975.357/0001-56
+              CNPJ: 51.641.909/0001-60
             </p>
           </div>
         </div>
