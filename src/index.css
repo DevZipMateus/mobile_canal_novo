@@ -17,57 +17,50 @@ All colors MUST be HSL.
     --popover: 0 0% 100%;
     --popover-foreground: 0 0% 10%;
 
-    /* Verde vibrante da Magazine Ferro e Aço */
-    --primary: 142 100% 35%;
+    /* Grafite escuro - Mobile Canal */
+    --primary: 0 0% 20%;
     --primary-foreground: 0 0% 100%;
-    --primary-light: 142 100% 45%;
-    --primary-dark: 142 100% 25%;
+    --primary-light: 0 0% 30%;
+    --primary-dark: 0 0% 10%;
 
-    --secondary: 0 0% 20%;
+    --secondary: 0 0% 15%;
     --secondary-foreground: 0 0% 100%;
 
     --muted: 0 0% 96%;
     --muted-foreground: 0 0% 45%;
 
-    /* Destaque laranja/amarelo */
-    --accent: 38 95% 50%;
-    --accent-foreground: 0 0% 10%;
+    /* Destaque cinza médio */
+    --accent: 0 0% 40%;
+    --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 100%;
 
     --border: 0 0% 90%;
     --input: 0 0% 90%;
-    --ring: 142 100% 35%;
+    --ring: 0 0% 20%;
 
     --radius: 0.75rem;
     
     /* Sombras e gradientes */
-    --shadow-sm: 0 2px 8px -2px hsl(142 100% 35% / 0.1);
-    --shadow-md: 0 8px 16px -4px hsl(142 100% 35% / 0.15);
-    --shadow-lg: 0 16px 32px -8px hsl(142 100% 35% / 0.2);
+    --shadow-sm: 0 2px 8px -2px hsl(0 0% 20% / 0.1);
+    --shadow-md: 0 8px 16px -4px hsl(0 0% 20% / 0.15);
+    --shadow-lg: 0 16px 32px -8px hsl(0 0% 20% / 0.2);
     
-    --gradient-primary: linear-gradient(135deg, hsl(142 100% 35%), hsl(142 100% 45%));
-    --gradient-overlay: linear-gradient(180deg, hsl(0 0% 10% / 0.6), hsl(0 0% 10% / 0.8));
+    --gradient-primary: linear-gradient(135deg, hsl(0 0% 20%), hsl(0 0% 30%));
+    --gradient-overlay: linear-gradient(180deg, hsl(0 0% 10% / 0.5), hsl(0 0% 10% / 0.8));
     
     /* Transições */
     --transition-base: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     --transition-fast: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
 
     --sidebar-background: 0 0% 98%;
-
     --sidebar-foreground: 240 5.3% 26.1%;
-
     --sidebar-primary: 240 5.9% 10%;
-
     --sidebar-primary-foreground: 0 0% 98%;
-
     --sidebar-accent: 240 4.8% 95.9%;
-
     --sidebar-accent-foreground: 240 5.9% 10%;
-
     --sidebar-border: 220 13% 91%;
-
     --sidebar-ring: 217.2 91.2% 59.8%;
   }
 
@@ -81,10 +74,10 @@ All colors MUST be HSL.
     --popover: 0 0% 15%;
     --popover-foreground: 0 0% 98%;
 
-    --primary: 142 100% 45%;
+    --primary: 0 0% 80%;
     --primary-foreground: 0 0% 10%;
-    --primary-light: 142 100% 55%;
-    --primary-dark: 142 100% 35%;
+    --primary-light: 0 0% 90%;
+    --primary-dark: 0 0% 70%;
 
     --secondary: 0 0% 25%;
     --secondary-foreground: 0 0% 98%;
@@ -92,7 +85,7 @@ All colors MUST be HSL.
     --muted: 0 0% 20%;
     --muted-foreground: 0 0% 60%;
 
-    --accent: 38 95% 55%;
+    --accent: 0 0% 50%;
     --accent-foreground: 0 0% 10%;
 
     --destructive: 0 62.8% 50%;
@@ -100,7 +93,7 @@ All colors MUST be HSL.
 
     --border: 0 0% 25%;
     --input: 0 0% 25%;
-    --ring: 142 100% 45%;
+    --ring: 0 0% 80%;
     --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 240 4.8% 95.9%;
     --sidebar-primary: 224.3 76.3% 48%;
