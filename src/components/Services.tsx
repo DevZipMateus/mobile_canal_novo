@@ -1,4 +1,5 @@
 import { Sofa, Bed, UtensilsCrossed, Palette, ShowerHead, Layers, Truck, Headphones, Wrench } from 'lucide-react';
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 import productsImage from '@/assets/services-furniture.jpg';
 
 const Services = () => {
@@ -6,32 +7,32 @@ const Services = () => {
     {
       icon: Sofa,
       title: 'Móveis para sala',
-      items: ['Sofás e sofá-cama', 'Poltronas', 'Mesas de centro', 'Estantes', 'Painéis e aparadores'],
+      items: ['Sofás e sofá-cama', 'Poltronas e cadeiras de descanso', 'Mesas de centro e laterais', 'Estantes e prateleiras', 'Painéis e aparadores'],
     },
     {
       icon: Bed,
       title: 'Móveis para quarto',
-      items: ['Camas', 'Guarda-roupas', 'Cômodas', 'Cabeceiras', 'Penteadeiras'],
+      items: ['Camas (casal, solteiro, beliche)', 'Guarda-roupas e roupeiros', 'Cômodas e criados-mudos', 'Cabeceiras e cabeceiras estofadas', 'Espelhos e penteadeiras'],
     },
     {
       icon: UtensilsCrossed,
       title: 'Móveis para cozinha',
-      items: ['Mesas de jantar', 'Cadeiras e bancos', 'Armários', 'Bancadas'],
+      items: ['Mesas de jantar', 'Cadeiras e bancos', 'Bancadas e ilhas', 'Armários e despensas'],
     },
     {
       icon: Palette,
       title: 'Decorações e complementos',
-      items: ['Tapetes', 'Cortinas', 'Quadros decorativos', 'Luminárias', 'Objetos decorativos'],
+      items: ['Tapetes e passadeiras', 'Cortinas e persianas', 'Quadros e painéis decorativos', 'Luminárias e abajures', 'Objetos decorativos'],
     },
     {
       icon: ShowerHead,
       title: 'Cama, mesa e banho',
-      items: ['Conjuntos de cama', 'Toalhas', 'Jogos americanos', 'Utensílios decorativos'],
+      items: ['Conjuntos de cama (lençóis, edredons, colchas)', 'Toalhas de banho e rosto', 'Jogos americanos e tapetes de mesa', 'Utensílios decorativos para cozinha'],
     },
     {
       icon: Layers,
       title: 'Soluções multifuncionais',
-      items: ['Móveis modulares', 'Soluções para espaços pequenos', 'Design inteligente'],
+      items: ['Móveis modulares e versáteis', 'Soluções para espaços pequenos', 'Móveis com design inteligente'],
     },
   ];
 
@@ -119,30 +120,40 @@ const Services = () => {
           </div>
         </div>
 
-        {/* Product Categories Grid */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-          {productCategories.map((category, index) => {
-            const Icon = category.icon;
-            return (
-              <div
-                key={index}
-                className="bg-card border border-border rounded-xl p-6 sm:p-8 card-hover"
-              >
-                <div className="w-12 h-12 sm:w-14 sm:h-14 bg-secondary/10 rounded-lg flex items-center justify-center mb-4">
-                  <Icon className="text-secondary" size={24} />
-                </div>
-                <h3 className="text-lg sm:text-xl font-semibold mb-3 sm:mb-4">{category.title}</h3>
-                <ul className="space-y-2">
-                  {category.items.map((item, itemIndex) => (
-                    <li key={itemIndex} className="text-sm sm:text-base text-muted-foreground flex items-center gap-2">
-                      <span className="w-1.5 h-1.5 bg-secondary rounded-full flex-shrink-0"></span>
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            );
-          })}
+        {/* Product Categories Accordion */}
+        <div className="max-w-4xl mx-auto">
+          <h3 className="text-xl sm:text-2xl font-bold mb-6 text-center">Categorias de produtos</h3>
+          <Accordion type="multiple" className="space-y-4">
+            {productCategories.map((category, index) => {
+              const Icon = category.icon;
+              return (
+                <AccordionItem 
+                  key={index} 
+                  value={`item-${index}`}
+                  className="bg-card border border-border rounded-xl px-6 data-[state=open]:shadow-md transition-shadow"
+                >
+                  <AccordionTrigger className="hover:no-underline py-5">
+                    <div className="flex items-center gap-4">
+                      <div className="w-10 h-10 sm:w-12 sm:h-12 bg-secondary/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                        <Icon className="text-secondary" size={22} />
+                      </div>
+                      <span className="text-base sm:text-lg font-semibold text-left">{category.title}</span>
+                    </div>
+                  </AccordionTrigger>
+                  <AccordionContent className="pb-5">
+                    <ul className="space-y-2 pl-14 sm:pl-16">
+                      {category.items.map((item, itemIndex) => (
+                        <li key={itemIndex} className="text-sm sm:text-base text-muted-foreground flex items-center gap-2">
+                          <span className="w-1.5 h-1.5 bg-secondary rounded-full flex-shrink-0"></span>
+                          {item}
+                        </li>
+                      ))}
+                    </ul>
+                  </AccordionContent>
+                </AccordionItem>
+              );
+            })}
+          </Accordion>
         </div>
       </div>
     </section>
