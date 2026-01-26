@@ -16,13 +16,13 @@ const Contact = () => {
     {
       icon: Mail,
       title: 'E-mail',
-      content: 'mobilecanal@hotmail.com',
-      link: 'mailto:mobilecanal@hotmail.com',
+      content: 'atendimento@mobilecanal.com.br',
+      link: 'mailto:atendimento@mobilecanal.com.br',
     },
     {
       icon: Clock,
       title: 'Horário de funcionamento',
-      content: 'Segunda a sexta: 08:00 às 18:00 | Sábado: 08:00 às 13:00',
+      content: 'Segunda a sexta: 08:00 às 18:00 | Sábado: 08:00 às 12:00',
     },
   ];
 
@@ -87,7 +87,7 @@ const Contact = () => {
                   <h3 className="text-base sm:text-lg font-semibold mb-1 sm:mb-2">Redes sociais</h3>
                   <div className="flex flex-col gap-2">
                     <a
-                      href="https://www.instagram.com/mobilecanal"
+                      href="https://www.instagram.com/mobilecanal?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
                       target="_blank"
                       rel="noopener noreferrer"
                       className="text-sm sm:text-base text-muted-foreground hover:text-secondary transition-colors"
