@@ -1,7 +1,13 @@
 import { Target, Eye, Heart, Building2, Star, Users, Shield, Lightbulb, CheckCircle } from 'lucide-react';
+import { motion } from 'framer-motion';
+import { useInView } from 'framer-motion';
+import { useRef } from 'react';
 import aboutImage from '@/assets/about-showroom.jpg';
 
 const About = () => {
+  const sectionRef = useRef(null);
+  const isInView = useInView(sectionRef, { once: true, margin: '-100px' });
+
   const values = [
     { icon: Star, title: 'Qualidade', description: 'Produtos duráveis e bem acabados' },
     { icon: Users, title: 'Atendimento', description: 'Relacionamento próximo e personalizado' },
@@ -10,12 +16,32 @@ const About = () => {
     { icon: CheckCircle, title: 'Compromisso', description: 'Cumprimento de prazos e promessas' },
   ];
 
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
+  };
+
   return (
-    <section id="sobre" className="section-padding bg-muted/30">
+    <section id="sobre" className="section-padding bg-muted/30" ref={sectionRef}>
       <div className="container-custom px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 items-center">
           {/* Image */}
-          <div className="relative order-2 lg:order-1">
+          <motion.div 
+            className="relative order-2 lg:order-1"
+            initial={{ opacity: 0, x: -50 }}
+            animate={isInView ? { opacity: 1, x: 0 } : {}}
+            transition={{ duration: 0.8 }}
+          >
             <div className="relative rounded-2xl overflow-hidden shadow-lg">
               <img
                 src={aboutImage}
@@ -24,16 +50,26 @@ const About = () => {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
             </div>
-            <div className="absolute -bottom-4 -right-4 sm:-bottom-6 sm:-right-6 bg-secondary text-secondary-foreground p-4 sm:p-6 rounded-xl shadow-xl">
+            <motion.div 
+              className="absolute -bottom-4 -right-4 sm:-bottom-6 sm:-right-6 bg-secondary text-secondary-foreground p-4 sm:p-6 rounded-xl shadow-xl"
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={isInView ? { opacity: 1, scale: 1 } : {}}
+              transition={{ duration: 0.5, delay: 0.4 }}
+            >
               <div className="text-center">
                 <div className="text-3xl sm:text-4xl font-bold">✓</div>
                 <div className="text-xs sm:text-sm">Qualidade garantida</div>
               </div>
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
 
           {/* Content */}
-          <div className="order-1 lg:order-2">
+          <motion.div 
+            className="order-1 lg:order-2"
+            initial={{ opacity: 0, x: 50 }}
+            animate={isInView ? { opacity: 1, x: 0 } : {}}
+            transition={{ duration: 0.8 }}
+          >
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-4 sm:mb-6 text-foreground">
               Sobre nós
             </h2>
@@ -50,7 +86,12 @@ const About = () => {
 
             {/* Mission, Vision */}
             <div className="space-y-4 sm:space-y-6 mb-8">
-              <div className="flex gap-3 sm:gap-4">
+              <motion.div 
+                className="flex gap-3 sm:gap-4"
+                initial={{ opacity: 0, y: 20 }}
+                animate={isInView ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 0.5, delay: 0.2 }}
+              >
                 <div className="flex-shrink-0">
                   <div className="w-10 h-10 sm:w-12 sm:h-12 bg-secondary/10 rounded-lg flex items-center justify-center">
                     <Target className="text-secondary" size={20} />
@@ -63,9 +104,14 @@ const About = () => {
                     oferecendo soluções completas para o lar com atendimento personalizado e excelência.
                   </p>
                 </div>
-              </div>
+              </motion.div>
 
-              <div className="flex gap-3 sm:gap-4">
+              <motion.div 
+                className="flex gap-3 sm:gap-4"
+                initial={{ opacity: 0, y: 20 }}
+                animate={isInView ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 0.5, delay: 0.3 }}
+              >
                 <div className="flex-shrink-0">
                   <div className="w-10 h-10 sm:w-12 sm:h-12 bg-secondary/10 rounded-lg flex items-center justify-center">
                     <Eye className="text-secondary" size={20} />
@@ -78,13 +124,18 @@ const About = () => {
                     dos produtos, inovação em design e compromisso com a satisfação dos clientes.
                   </p>
                 </div>
-              </div>
+              </motion.div>
             </div>
-          </div>
+          </motion.div>
         </div>
 
         {/* Values Section */}
-        <div className="mt-12 sm:mt-16">
+        <motion.div 
+          className="mt-12 sm:mt-16"
+          variants={containerVariants}
+          initial="hidden"
+          animate={isInView ? "visible" : "hidden"}
+        >
           <div className="flex gap-3 sm:gap-4 mb-6">
             <div className="flex-shrink-0">
               <div className="w-10 h-10 sm:w-12 sm:h-12 bg-secondary/10 rounded-lg flex items-center justify-center">
@@ -99,20 +150,31 @@ const About = () => {
             {values.map((value, index) => {
               const Icon = value.icon;
               return (
-                <div key={index} className="bg-card border border-border rounded-xl p-4 sm:p-6 text-center card-hover">
-                  <div className="w-10 h-10 sm:w-12 sm:h-12 bg-secondary/10 rounded-lg flex items-center justify-center mx-auto mb-3">
+                <motion.div 
+                  key={index} 
+                  className="bg-card border border-border rounded-xl p-4 sm:p-6 text-center card-hover group cursor-pointer"
+                  variants={itemVariants}
+                  whileHover={{ scale: 1.05, y: -5 }}
+                  transition={{ type: 'spring', stiffness: 300 }}
+                >
+                  <div className="w-10 h-10 sm:w-12 sm:h-12 bg-secondary/10 rounded-lg flex items-center justify-center mx-auto mb-3 group-hover:bg-secondary/20 transition-colors">
                     <Icon className="text-secondary" size={20} />
                   </div>
                   <h4 className="font-semibold text-sm sm:text-base mb-1">{value.title}</h4>
                   <p className="text-xs sm:text-sm text-muted-foreground">{value.description}</p>
-                </div>
+                </motion.div>
               );
             })}
           </div>
-        </div>
+        </motion.div>
 
         {/* Market Section */}
-        <div className="mt-12 sm:mt-16 bg-card border border-border rounded-2xl p-6 sm:p-8">
+        <motion.div 
+          className="mt-12 sm:mt-16 bg-card border border-border rounded-2xl p-6 sm:p-8"
+          initial={{ opacity: 0, y: 30 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.6, delay: 0.5 }}
+        >
           <div className="flex gap-3 sm:gap-4 mb-4">
             <div className="flex-shrink-0">
               <div className="w-10 h-10 sm:w-12 sm:h-12 bg-secondary/10 rounded-lg flex items-center justify-center">
@@ -130,7 +192,7 @@ const About = () => {
             confortáveis, funcionais e esteticamente harmoniosos, oferecendo soluções completas que vão 
             desde móveis essenciais até itens decorativos que personalizam cada lar.
           </p>
-        </div>
+        </motion.div>
       </div>
     </section>
   );

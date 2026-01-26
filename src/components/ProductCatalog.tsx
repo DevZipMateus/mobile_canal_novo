@@ -2,6 +2,9 @@ import { useState } from 'react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { MessageCircle } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { useInView } from 'framer-motion';
+import { useRef } from 'react';
 
 interface Product {
   id: string;
@@ -52,6 +55,8 @@ const categories = ['Todos', 'Estofados', 'Sala de Estar', 'Quarto', 'Home Theat
 
 const ProductCatalog = () => {
   const [activeCategory, setActiveCategory] = useState('Todos');
+  const sectionRef = useRef(null);
+  const isInView = useInView(sectionRef, { once: true, margin: '-100px' });
 
   const filteredProducts = activeCategory === 'Todos' 
     ? products 
@@ -63,82 +68,126 @@ const ProductCatalog = () => {
   };
 
   return (
-    <section id="catalogo" className="section-padding bg-muted/30">
+    <section id="catalogo" className="section-padding bg-muted/30" ref={sectionRef}>
       <div className="container-custom px-4 sm:px-6 lg:px-8">
         {/* Header */}
-        <div className="text-center mb-8 sm:mb-12">
+        <motion.div 
+          className="text-center mb-8 sm:mb-12"
+          initial={{ opacity: 0, y: 20 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.6 }}
+        >
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-3 sm:mb-4 text-foreground">
             Nosso catálogo
           </h2>
           <p className="text-base sm:text-lg text-muted-foreground max-w-2xl mx-auto px-4">
             Confira nossa seleção de móveis e encontre o ideal para sua casa
           </p>
-        </div>
+        </motion.div>
 
         {/* Category Filter */}
-        <div className="flex flex-wrap justify-center gap-2 sm:gap-3 mb-8 sm:mb-12">
+        <motion.div 
+          className="flex flex-wrap justify-center gap-2 sm:gap-3 mb-8 sm:mb-12"
+          initial={{ opacity: 0, y: 20 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.6, delay: 0.1 }}
+        >
           {categories.map((category) => (
-            <Button
+            <motion.div
               key={category}
-              variant={activeCategory === category ? 'default' : 'outline'}
-              onClick={() => setActiveCategory(category)}
-              className="text-sm sm:text-base"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
             >
-              {category}
-            </Button>
+              <Button
+                variant={activeCategory === category ? 'default' : 'outline'}
+                onClick={() => setActiveCategory(category)}
+                className="text-sm sm:text-base"
+              >
+                {category}
+              </Button>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
 
         {/* Products Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6">
-          {filteredProducts.map((product) => (
-            <Card 
-              key={product.id} 
-              className="group overflow-hidden bg-card border-border hover:shadow-lg transition-all duration-300"
-            >
-              <div className="relative aspect-square overflow-hidden bg-white">
-                <img
-                  src={product.image}
-                  alt={product.name}
-                  className="w-full h-full object-contain p-4 group-hover:scale-105 transition-transform duration-300"
-                />
-                <div className="absolute top-2 right-2">
-                  <span className="bg-secondary text-secondary-foreground text-xs px-2 py-1 rounded-full">
-                    {product.category}
-                  </span>
-                </div>
-              </div>
-              <CardContent className="p-4">
-                <h3 className="font-semibold text-sm sm:text-base mb-3 line-clamp-2 min-h-[2.5rem]">
-                  {product.name}
-                </h3>
-                <Button
-                  onClick={() => handleWhatsAppClick(product.name)}
-                  className="w-full bg-[#25D366] hover:bg-[#128C7E] text-white"
+        <motion.div 
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6"
+          layout
+        >
+          <AnimatePresence mode="popLayout">
+            {filteredProducts.map((product) => (
+              <motion.div
+                key={product.id}
+                layout
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.9 }}
+                transition={{ duration: 0.3 }}
+              >
+                <Card 
+                  className="group overflow-hidden bg-card border-border hover:shadow-lg transition-all duration-300"
                 >
-                  <MessageCircle size={18} className="mr-2" />
-                  Consultar preço
-                </Button>
-              </CardContent>
-            </Card>
-          ))}
-        </div>
+                  <motion.div 
+                    className="relative aspect-square overflow-hidden bg-white"
+                    whileHover={{ scale: 1.02 }}
+                    transition={{ duration: 0.3 }}
+                  >
+                    <img
+                      src={product.image}
+                      alt={product.name}
+                      className="w-full h-full object-contain p-4 group-hover:scale-105 transition-transform duration-300"
+                    />
+                    <div className="absolute top-2 right-2">
+                      <span className="bg-secondary text-secondary-foreground text-xs px-2 py-1 rounded-full">
+                        {product.category}
+                      </span>
+                    </div>
+                  </motion.div>
+                  <CardContent className="p-4">
+                    <h3 className="font-semibold text-sm sm:text-base mb-3 line-clamp-2 min-h-[2.5rem]">
+                      {product.name}
+                    </h3>
+                    <motion.div
+                      whileHover={{ scale: 1.02 }}
+                      whileTap={{ scale: 0.98 }}
+                    >
+                      <Button
+                        onClick={() => handleWhatsAppClick(product.name)}
+                        className="w-full bg-[#25D366] hover:bg-[#128C7E] text-white"
+                      >
+                        <MessageCircle size={18} className="mr-2" />
+                        Consultar preço
+                      </Button>
+                    </motion.div>
+                  </CardContent>
+                </Card>
+              </motion.div>
+            ))}
+          </AnimatePresence>
+        </motion.div>
 
         {/* CTA */}
-        <div className="text-center mt-8 sm:mt-12">
+        <motion.div 
+          className="text-center mt-8 sm:mt-12"
+          initial={{ opacity: 0, y: 20 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.6, delay: 0.3 }}
+        >
           <p className="text-muted-foreground mb-4">
             Não encontrou o que procura? Temos muito mais em nossa loja!
           </p>
-          <a
+          <motion.a
             href="https://wa.me/5527995059840"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center justify-center bg-secondary hover:bg-secondary/90 text-secondary-foreground px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-semibold text-base transition-all duration-300"
+            whileHover={{ scale: 1.02, boxShadow: '0 15px 30px -10px rgba(0,0,0,0.25)' }}
+            whileTap={{ scale: 0.98 }}
           >
             <MessageCircle size={20} className="mr-2" />
             Fale com um consultor
-          </a>
-        </div>
+          </motion.a>
+        </motion.div>
       </div>
     </section>
   );

@@ -1,4 +1,5 @@
 import { ArrowRight } from 'lucide-react';
+import { motion } from 'framer-motion';
 import heroImage from '@/assets/hero-furniture.jpg';
 
 const Hero = () => {
@@ -6,7 +7,10 @@ const Hero = () => {
     <section id="inicio" className="relative min-h-[100svh] flex items-center pt-16 sm:pt-20">
       {/* Background Image with Overlay */}
       <div className="absolute inset-0 z-0">
-        <img
+        <motion.img
+          initial={{ scale: 1.1 }}
+          animate={{ scale: 1 }}
+          transition={{ duration: 1.5, ease: 'easeOut' }}
           src={heroImage}
           alt="Showroom de móveis e decorações - Mobile Canal"
           className="w-full h-full object-cover"
@@ -20,17 +24,37 @@ const Hero = () => {
       {/* Content */}
       <div className="container-custom px-4 sm:px-6 lg:px-8 relative z-10 py-12 sm:py-16">
         <div className="max-w-4xl">
-          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white mb-4 sm:mb-6 animate-fade-in leading-tight">
+          <motion.h1 
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white mb-4 sm:mb-6 leading-tight"
+          >
             Mobile Canal
-          </h1>
-          <h2 className="text-lg sm:text-xl md:text-2xl lg:text-3xl text-white/90 mb-6 sm:mb-8 animate-fade-in font-normal leading-relaxed">
+          </motion.h1>
+          <motion.h2 
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+            className="text-lg sm:text-xl md:text-2xl lg:text-3xl text-white/90 mb-6 sm:mb-8 font-normal leading-relaxed"
+          >
             Móveis, estofados, colchões e decorações de qualidade para transformar sua casa em um verdadeiro lar
-          </h2>
-          <p className="text-base sm:text-lg md:text-xl text-white/80 mb-8 sm:mb-10 animate-fade-in leading-relaxed">
+          </motion.h2>
+          <motion.p 
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.6 }}
+            className="text-base sm:text-lg md:text-xl text-white/80 mb-8 sm:mb-10 leading-relaxed"
+          >
             Qualidade, design e conforto para seu lar.
-          </p>
+          </motion.p>
           
-          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 animate-fade-in">
+          <motion.div 
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.8 }}
+            className="flex flex-col sm:flex-row gap-3 sm:gap-4"
+          >
             <a
               href="https://wa.me/5527995059840"
               target="_blank"
@@ -50,7 +74,7 @@ const Hero = () => {
             >
               Ver produtos
             </a>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>
