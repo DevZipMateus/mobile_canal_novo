@@ -59,10 +59,10 @@ const Hero = () => {
               href="https://wa.me/5527995059840"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center bg-white hover:bg-white/90 text-secondary px-5 sm:px-6 md:px-8 py-3 sm:py-3.5 md:py-4 rounded-lg font-semibold text-sm sm:text-base md:text-lg transition-all duration-300 btn-shadow hover:shadow-xl group touch-manipulation"
+              className="inline-flex items-center justify-center bg-white hover:bg-white/90 text-secondary px-4 sm:px-5 md:px-6 py-2 sm:py-2.5 md:py-3 rounded-lg font-semibold text-xs sm:text-sm md:text-base transition-all duration-300 btn-shadow hover:shadow-xl group touch-manipulation"
             >
               Fale conosco
-              <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" size={18} />
+              <ArrowRight className="ml-1.5 sm:ml-2 group-hover:translate-x-1 transition-transform" size={16} />
             </a>
             <a
               href="#produtos"
@@ -70,7 +70,7 @@ const Hero = () => {
                 e.preventDefault();
                 document.querySelector('#produtos')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
               }}
-              className="inline-flex items-center justify-center bg-white/10 hover:bg-white/20 text-white border-2 border-white/60 hover:border-white px-5 sm:px-6 md:px-8 py-3 sm:py-3.5 md:py-4 rounded-lg font-semibold text-sm sm:text-base md:text-lg transition-all duration-300 backdrop-blur-sm touch-manipulation"
+              className="inline-flex items-center justify-center bg-white/10 hover:bg-white/20 text-white border-2 border-white/60 hover:border-white px-4 sm:px-5 md:px-6 py-2 sm:py-2.5 md:py-3 rounded-lg font-semibold text-xs sm:text-sm md:text-base transition-all duration-300 backdrop-blur-sm touch-manipulation"
             >
               Ver produtos
             </a>
