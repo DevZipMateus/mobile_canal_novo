@@ -1,11 +1,10 @@
 import { Star, Quote } from 'lucide-react';
-import { motion } from 'framer-motion';
-import { useInView } from 'framer-motion';
+import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
 
 const Testimonials = () => {
   const sectionRef = useRef(null);
-  const isInView = useInView(sectionRef, { once: true, margin: '-100px' });
+  const isInView = useInView(sectionRef, { once: true, margin: '-50px' });
 
   const testimonials = [
     {
@@ -39,14 +38,14 @@ const Testimonials = () => {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.15,
+        staggerChildren: 0.1,
       },
     },
   };
 
   const cardVariants = {
-    hidden: { opacity: 0, y: 30 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.4 } },
   };
 
   return (
@@ -54,22 +53,22 @@ const Testimonials = () => {
       <div className="container-custom px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <motion.div 
-          className="text-center mb-12 sm:mb-16"
-          initial={{ opacity: 0, y: 20 }}
+          className="text-center mb-8 sm:mb-10 md:mb-12 lg:mb-16"
+          initial={{ opacity: 0, y: 15 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.5 }}
         >
-          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-3 sm:mb-4 text-foreground">
+          <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-2 sm:mb-3 md:mb-4 text-foreground">
             O que nossos clientes dizem
           </h2>
-          <p className="text-base sm:text-lg text-muted-foreground max-w-2xl mx-auto px-4">
+          <p className="text-sm sm:text-base md:text-lg text-muted-foreground max-w-2xl mx-auto px-2">
             A satisfação dos nossos clientes é nossa maior recompensa
           </p>
         </motion.div>
 
         {/* Testimonials Grid */}
         <motion.div 
-          className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 md:gap-6 lg:gap-8"
           variants={containerVariants}
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
@@ -77,40 +76,40 @@ const Testimonials = () => {
           {testimonials.map((testimonial, index) => (
             <motion.div
               key={index}
-              className="bg-card border border-border rounded-xl p-6 sm:p-8 relative group"
+              className="bg-card border border-border rounded-lg sm:rounded-xl p-4 sm:p-5 md:p-6 lg:p-8 relative group"
               variants={cardVariants}
-              whileHover={{ y: -8, boxShadow: '0 20px 40px -15px rgba(0,0,0,0.15)' }}
+              whileHover={{ y: -5, boxShadow: '0 15px 30px -10px rgba(0,0,0,0.12)' }}
               transition={{ type: 'spring', stiffness: 300 }}
             >
-              <Quote className="absolute top-4 right-4 text-secondary/20 group-hover:text-secondary/30 transition-colors" size={32} />
+              <Quote className="absolute top-3 right-3 sm:top-4 sm:right-4 text-secondary/20 group-hover:text-secondary/30 transition-colors" size={24} />
               
               {/* Stars */}
-              <div className="flex gap-1 mb-4">
+              <div className="flex gap-0.5 sm:gap-1 mb-3 sm:mb-4">
                 {[...Array(5)].map((_, i) => (
                   <motion.div
                     key={i}
                     initial={{ opacity: 0, scale: 0 }}
                     animate={isInView ? { opacity: 1, scale: 1 } : {}}
-                    transition={{ delay: 0.3 + i * 0.1 }}
+                    transition={{ delay: 0.2 + i * 0.08 }}
                   >
-                    <Star className="text-yellow-400 fill-yellow-400" size={16} />
+                    <Star className="text-amber-400 fill-amber-400" size={14} />
                   </motion.div>
                 ))}
               </div>
 
               {/* Text */}
-              <p className="text-sm sm:text-base text-muted-foreground mb-4 leading-relaxed">
+              <p className="text-xs sm:text-sm md:text-base text-muted-foreground mb-3 sm:mb-4 leading-relaxed">
                 "{testimonial.text}"
               </p>
 
               {/* Author */}
-              <div className="flex items-center gap-3">
-                <div className="w-10 h-10 bg-secondary/10 rounded-full flex items-center justify-center group-hover:bg-secondary/20 transition-colors">
-                  <span className="text-secondary font-semibold text-sm">
+              <div className="flex items-center gap-2 sm:gap-3">
+                <div className="w-8 h-8 sm:w-9 sm:h-9 md:w-10 md:h-10 bg-secondary/10 rounded-full flex items-center justify-center group-hover:bg-secondary/20 transition-colors">
+                  <span className="text-secondary font-semibold text-xs sm:text-sm">
                     {testimonial.name.split(' ').map(n => n[0]).join('')}
                   </span>
                 </div>
-                <span className="font-semibold text-foreground">{testimonial.name}</span>
+                <span className="font-semibold text-sm sm:text-base text-foreground">{testimonial.name}</span>
               </div>
             </motion.div>
           ))}

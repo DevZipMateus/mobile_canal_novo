@@ -1,10 +1,8 @@
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { MessageCircle } from 'lucide-react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { useInView } from 'framer-motion';
-import { useRef } from 'react';
+import { motion, AnimatePresence, useInView } from 'framer-motion';
 
 interface Product {
   id: string;
@@ -56,7 +54,7 @@ const categories = ['Todos', 'Estofados', 'Sala de Estar', 'Quarto', 'Home Theat
 const ProductCatalog = () => {
   const [activeCategory, setActiveCategory] = useState('Todos');
   const sectionRef = useRef(null);
-  const isInView = useInView(sectionRef, { once: true, margin: '-100px' });
+  const isInView = useInView(sectionRef, { once: true, margin: '-50px' });
 
   const filteredProducts = activeCategory === 'Todos' 
     ? products 
@@ -72,36 +70,36 @@ const ProductCatalog = () => {
       <div className="container-custom px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <motion.div 
-          className="text-center mb-8 sm:mb-12"
-          initial={{ opacity: 0, y: 20 }}
+          className="text-center mb-6 sm:mb-8 md:mb-10 lg:mb-12"
+          initial={{ opacity: 0, y: 15 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.5 }}
         >
-          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-3 sm:mb-4 text-foreground">
+          <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-2 sm:mb-3 md:mb-4 text-foreground">
             Nosso catálogo
           </h2>
-          <p className="text-base sm:text-lg text-muted-foreground max-w-2xl mx-auto px-4">
+          <p className="text-sm sm:text-base md:text-lg text-muted-foreground max-w-2xl mx-auto px-2">
             Confira nossa seleção de móveis e encontre o ideal para sua casa
           </p>
         </motion.div>
 
         {/* Category Filter */}
         <motion.div 
-          className="flex flex-wrap justify-center gap-2 sm:gap-3 mb-8 sm:mb-12"
-          initial={{ opacity: 0, y: 20 }}
+          className="flex flex-wrap justify-center gap-1.5 sm:gap-2 md:gap-3 mb-6 sm:mb-8 md:mb-10 lg:mb-12"
+          initial={{ opacity: 0, y: 15 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6, delay: 0.1 }}
+          transition={{ duration: 0.5, delay: 0.08 }}
         >
           {categories.map((category) => (
             <motion.div
               key={category}
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
+              whileHover={{ scale: 1.03 }}
+              whileTap={{ scale: 0.97 }}
             >
               <Button
                 variant={activeCategory === category ? 'default' : 'outline'}
                 onClick={() => setActiveCategory(category)}
-                className="text-sm sm:text-base"
+                className="text-xs sm:text-sm md:text-base px-2.5 sm:px-3 md:px-4 py-1.5 sm:py-2 h-auto touch-manipulation"
               >
                 {category}
               </Button>
@@ -111,7 +109,7 @@ const ProductCatalog = () => {
 
         {/* Products Grid */}
         <motion.div 
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6"
+          className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4 md:gap-5 lg:gap-6"
           layout
         >
           <AnimatePresence mode="popLayout">
@@ -122,40 +120,40 @@ const ProductCatalog = () => {
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.9 }}
-                transition={{ duration: 0.3 }}
+                transition={{ duration: 0.25 }}
               >
                 <Card 
-                  className="group overflow-hidden bg-card border-border hover:shadow-lg transition-all duration-300"
+                  className="group overflow-hidden bg-card border-border hover:shadow-lg transition-all duration-300 h-full"
                 >
                   <motion.div 
                     className="relative aspect-square overflow-hidden bg-white"
-                    whileHover={{ scale: 1.02 }}
-                    transition={{ duration: 0.3 }}
+                    whileHover={{ scale: 1.01 }}
+                    transition={{ duration: 0.25 }}
                   >
                     <img
                       src={product.image}
                       alt={product.name}
-                      className="w-full h-full object-contain p-4 group-hover:scale-105 transition-transform duration-300"
+                      className="w-full h-full object-contain p-2 sm:p-3 md:p-4 group-hover:scale-105 transition-transform duration-300"
                     />
-                    <div className="absolute top-2 right-2">
-                      <span className="bg-secondary text-secondary-foreground text-xs px-2 py-1 rounded-full">
+                    <div className="absolute top-1.5 right-1.5 sm:top-2 sm:right-2">
+                      <span className="bg-secondary text-secondary-foreground text-[10px] sm:text-xs px-1.5 sm:px-2 py-0.5 sm:py-1 rounded-full">
                         {product.category}
                       </span>
                     </div>
                   </motion.div>
-                  <CardContent className="p-4">
-                    <h3 className="font-semibold text-sm sm:text-base mb-3 line-clamp-2 min-h-[2.5rem]">
+                  <CardContent className="p-2.5 sm:p-3 md:p-4">
+                    <h3 className="font-semibold text-xs sm:text-sm md:text-base mb-2 sm:mb-3 line-clamp-2 min-h-[2rem] sm:min-h-[2.5rem]">
                       {product.name}
                     </h3>
                     <motion.div
-                      whileHover={{ scale: 1.02 }}
+                      whileHover={{ scale: 1.01 }}
                       whileTap={{ scale: 0.98 }}
                     >
                       <Button
                         onClick={() => handleWhatsAppClick(product.name)}
-                        className="w-full bg-[#25D366] hover:bg-[#128C7E] text-white"
+                        className="w-full bg-[#25D366] hover:bg-[#128C7E] text-white text-xs sm:text-sm h-8 sm:h-9 md:h-10 touch-manipulation"
                       >
-                        <MessageCircle size={18} className="mr-2" />
+                        <MessageCircle size={14} className="mr-1.5 sm:mr-2" />
                         Consultar preço
                       </Button>
                     </motion.div>
@@ -168,23 +166,23 @@ const ProductCatalog = () => {
 
         {/* CTA */}
         <motion.div 
-          className="text-center mt-8 sm:mt-12"
-          initial={{ opacity: 0, y: 20 }}
+          className="text-center mt-6 sm:mt-8 md:mt-10 lg:mt-12"
+          initial={{ opacity: 0, y: 15 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6, delay: 0.3 }}
+          transition={{ duration: 0.5, delay: 0.25 }}
         >
-          <p className="text-muted-foreground mb-4">
+          <p className="text-xs sm:text-sm md:text-base text-muted-foreground mb-3 sm:mb-4">
             Não encontrou o que procura? Temos muito mais em nossa loja!
           </p>
           <motion.a
             href="https://wa.me/5527995059840"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center justify-center bg-secondary hover:bg-secondary/90 text-secondary-foreground px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-semibold text-base transition-all duration-300"
-            whileHover={{ scale: 1.02, boxShadow: '0 15px 30px -10px rgba(0,0,0,0.25)' }}
+            className="inline-flex items-center justify-center bg-secondary hover:bg-secondary/90 text-secondary-foreground px-5 sm:px-6 md:px-8 py-2.5 sm:py-3 md:py-4 rounded-lg font-semibold text-sm sm:text-base transition-all duration-300 touch-manipulation"
+            whileHover={{ scale: 1.02, boxShadow: '0 12px 24px -8px rgba(0,0,0,0.2)' }}
             whileTap={{ scale: 0.98 }}
           >
-            <MessageCircle size={20} className="mr-2" />
+            <MessageCircle size={18} className="mr-2" />
             Fale com um consultor
           </motion.a>
         </motion.div>
