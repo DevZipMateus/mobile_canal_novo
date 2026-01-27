@@ -1,8 +1,9 @@
 import { useState, useRef } from 'react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { MessageCircle } from 'lucide-react';
+import { ShoppingCart, Plus, Minus, MessageCircle } from 'lucide-react';
 import { motion, AnimatePresence, useInView } from 'framer-motion';
+import { useCart } from '@/contexts/CartContext';
 
 interface Product {
   id: string;
@@ -53,20 +54,32 @@ const categories = ['Todos', 'Estofados', 'Sala de Estar', 'Quarto', 'Home Theat
 
 const ProductCatalog = () => {
   const [activeCategory, setActiveCategory] = useState('Todos');
+  const [quantities, setQuantities] = useState<Record<string, number>>({});
   const sectionRef = useRef(null);
   const isInView = useInView(sectionRef, { once: true, margin: '-50px' });
+  const { addToCart } = useCart();
 
   const filteredProducts = activeCategory === 'Todos' 
     ? products 
     : products.filter(product => product.category === activeCategory);
 
-  const handleWhatsAppClick = (productName: string) => {
-    const message = encodeURIComponent(`Olá! Gostaria de saber mais sobre o produto: ${productName}`);
-    window.open(`https://wa.me/5527995059840?text=${message}`, '_blank');
+  const getQuantity = (productId: string) => quantities[productId] || 1;
+
+  const updateQuantity = (productId: string, delta: number) => {
+    setQuantities(prev => ({
+      ...prev,
+      [productId]: Math.max(1, (prev[productId] || 1) + delta)
+    }));
+  };
+
+  const handleAddToCart = (product: Product) => {
+    const quantity = getQuantity(product.id);
+    addToCart({ id: product.id, name: product.name, image: product.image }, quantity);
+    setQuantities(prev => ({ ...prev, [product.id]: 1 }));
   };
 
   return (
-    <section id="catalogo" className="section-padding bg-muted/30" ref={sectionRef}>
+    <section id="vitrine" className="section-padding bg-muted/30" ref={sectionRef}>
       <div className="container-custom px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <motion.div 
@@ -76,7 +89,7 @@ const ProductCatalog = () => {
           transition={{ duration: 0.5 }}
         >
           <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-2 sm:mb-3 md:mb-4 text-foreground">
-            Nosso catálogo
+            Vitrine
           </h2>
           <p className="text-sm sm:text-base md:text-lg text-muted-foreground max-w-2xl mx-auto px-2">
             Confira nossa seleção de móveis e encontre o ideal para sua casa
@@ -145,16 +158,39 @@ const ProductCatalog = () => {
                     <h3 className="font-semibold text-xs sm:text-sm md:text-base mb-2 sm:mb-3 line-clamp-2 min-h-[2rem] sm:min-h-[2.5rem]">
                       {product.name}
                     </h3>
+                    
+                    {/* Quantity Selector */}
+                    <div className="flex items-center justify-center gap-2 mb-2 sm:mb-3">
+                      <button
+                        onClick={() => updateQuantity(product.id, -1)}
+                        className="w-7 h-7 sm:w-8 sm:h-8 flex items-center justify-center bg-muted hover:bg-muted/80 rounded-md transition-colors touch-manipulation"
+                        aria-label="Diminuir quantidade"
+                      >
+                        <Minus size={14} />
+                      </button>
+                      <span className="w-8 text-center text-sm font-medium">
+                        {getQuantity(product.id)}
+                      </span>
+                      <button
+                        onClick={() => updateQuantity(product.id, 1)}
+                        className="w-7 h-7 sm:w-8 sm:h-8 flex items-center justify-center bg-muted hover:bg-muted/80 rounded-md transition-colors touch-manipulation"
+                        aria-label="Aumentar quantidade"
+                      >
+                        <Plus size={14} />
+                      </button>
+                    </div>
+
+                    {/* Add to Cart Button */}
                     <motion.div
                       whileHover={{ scale: 1.01 }}
                       whileTap={{ scale: 0.98 }}
                     >
                       <Button
-                        onClick={() => handleWhatsAppClick(product.name)}
-                        className="w-full bg-[#25D366] hover:bg-[#128C7E] text-white text-xs sm:text-sm h-8 sm:h-9 md:h-10 touch-manipulation"
+                        onClick={() => handleAddToCart(product)}
+                        className="w-full bg-secondary hover:bg-secondary/90 text-secondary-foreground text-xs sm:text-sm h-8 sm:h-9 md:h-10 touch-manipulation"
                       >
-                        <MessageCircle size={14} className="mr-1.5 sm:mr-2" />
-                        Consultar preço
+                        <ShoppingCart size={14} className="mr-1.5 sm:mr-2" />
+                        Adicionar ao carrinho
                       </Button>
                     </motion.div>
                   </CardContent>
