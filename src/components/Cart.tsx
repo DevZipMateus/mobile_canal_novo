@@ -29,7 +29,7 @@ const Cart = () => {
       {/* Cart Button */}
       <motion.button
         onClick={() => setIsOpen(true)}
-        className="fixed bottom-24 right-4 sm:right-6 z-40 bg-secondary hover:bg-secondary/90 text-white p-3 sm:p-4 rounded-full shadow-lg transition-all duration-300"
+        className="fixed bottom-20 sm:bottom-24 right-3 sm:right-4 md:right-6 z-40 bg-secondary hover:bg-secondary/90 text-white p-2.5 sm:p-3 md:p-4 rounded-full shadow-lg transition-all duration-300"
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}
         aria-label="Abrir carrinho"
