@@ -1,8 +1,9 @@
 import { useState } from 'react';
-import { ShoppingCart, X, Plus, Minus, Trash2, Send } from 'lucide-react';
+import { ShoppingCart, X, Plus, Minus, Trash2 } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import { useCart } from '@/contexts/CartContext';
+import whatsappIcon from '@/assets/whatsapp-icon.png';
 
 const Cart = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -158,7 +159,7 @@ const Cart = () => {
                     onClick={handleSendWhatsApp}
                     className="w-full bg-[#25D366] hover:bg-[#128C7E] text-white h-12 text-base font-semibold"
                   >
-                    <Send size={18} className="mr-2" />
+                    <img src={whatsappIcon} alt="WhatsApp" className="w-5 h-5 mr-2" />
                     Enviar pedido via WhatsApp
                   </Button>
                   <button

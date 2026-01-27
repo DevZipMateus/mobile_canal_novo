@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import { useRef } from 'react';
 import productsImage from '@/assets/services-furniture.jpg';
+import whatsappIcon from '@/assets/whatsapp-icon.png';
 
 const Services = () => {
   const sectionRef = useRef(null);
@@ -160,6 +161,7 @@ const Services = () => {
               whileHover={{ scale: 1.02, boxShadow: '0 12px 24px -8px rgba(0,0,0,0.2)' }}
               whileTap={{ scale: 0.98 }}
             >
+              <img src={whatsappIcon} alt="WhatsApp" className="w-5 h-5 sm:w-6 sm:h-6 mr-2" />
               Fale com um consultor
             </motion.a>
           </motion.div>
