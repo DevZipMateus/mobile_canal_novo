@@ -93,7 +93,7 @@ const Header = () => {
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? 'bg-secondary shadow-md' : 'bg-secondary/95 backdrop-blur-sm'
+        isScrolled ? 'bg-white shadow-md' : 'bg-white/95 backdrop-blur-sm'
       }`}
     >
       <nav className="container-custom px-4 sm:px-6 lg:px-8">
@@ -114,17 +114,17 @@ const Header = () => {
                 key={item.href}
                 href={item.href}
                 onClick={(e) => handleNavClick(e, item.href)}
-                className="text-secondary-foreground hover:text-white/80 font-medium text-sm xl:text-base transition-colors duration-300 relative group whitespace-nowrap"
+                className="text-foreground hover:text-foreground/70 font-medium text-sm xl:text-base transition-colors duration-300 relative group whitespace-nowrap"
               >
                 {item.label}
-                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-white transition-all duration-300 group-hover:w-full" />
+                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-foreground transition-all duration-300 group-hover:w-full" />
               </a>
             ))}
             <a
               href="https://wa.me/5527995059840"
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-white hover:bg-white/90 text-secondary px-4 xl:px-5 2xl:px-6 py-2 xl:py-2.5 rounded-lg font-medium text-sm xl:text-base transition-all duration-300 btn-shadow hover:shadow-xl whitespace-nowrap"
+              className="bg-secondary hover:bg-secondary/90 text-white px-4 xl:px-5 2xl:px-6 py-2 xl:py-2.5 rounded-lg font-medium text-sm xl:text-base transition-all duration-300 btn-shadow hover:shadow-xl whitespace-nowrap"
             >
               Entre em contato
             </a>
@@ -133,7 +133,7 @@ const Header = () => {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="lg:hidden p-2 -mr-2 text-secondary-foreground hover:text-white/80 transition-colors touch-manipulation"
+            className="lg:hidden p-2 -mr-2 text-foreground hover:text-foreground/70 transition-colors touch-manipulation"
             aria-label="Toggle menu"
             aria-expanded={isMobileMenuOpen}
           >
@@ -145,7 +145,7 @@ const Header = () => {
         <AnimatePresence>
           {isMobileMenuOpen && (
             <motion.div 
-              className="lg:hidden py-4 border-t border-secondary-foreground/20"
+              className="lg:hidden py-4 border-t border-border"
               initial={{ opacity: 0, height: 0 }}
               animate={{ opacity: 1, height: 'auto' }}
               exit={{ opacity: 0, height: 0 }}
@@ -157,7 +157,7 @@ const Header = () => {
                     key={item.href}
                     href={item.href}
                     onClick={(e) => handleNavClick(e, item.href)}
-                    className="text-secondary-foreground hover:text-white hover:bg-white/10 font-medium transition-colors duration-300 py-3 px-2 rounded-lg text-base touch-manipulation"
+                    className="text-foreground hover:text-foreground/70 hover:bg-muted font-medium transition-colors duration-300 py-3 px-2 rounded-lg text-base touch-manipulation"
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: index * 0.05 }}
@@ -169,7 +169,7 @@ const Header = () => {
                   href="https://wa.me/5527995059840"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="bg-white hover:bg-white/90 text-secondary px-6 py-3.5 rounded-lg font-medium transition-all duration-300 text-center text-base mt-2 touch-manipulation"
+                  className="bg-secondary hover:bg-secondary/90 text-white px-6 py-3.5 rounded-lg font-medium transition-all duration-300 text-center text-base mt-2 touch-manipulation"
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: menuItems.length * 0.05 }}
