@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import logo from '@/assets/logo.png';
+import logo from '@/assets/logo-black.png';
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -103,7 +103,7 @@ const Header = () => {
             <img
               src={logo}
               alt="Mobile Canal - Logo"
-              className="h-8 sm:h-10 md:h-12 lg:h-14 xl:h-16 w-auto object-contain invert"
+              className="h-8 sm:h-10 md:h-12 lg:h-14 xl:h-16 w-auto object-contain"
             />
           </a>
 
