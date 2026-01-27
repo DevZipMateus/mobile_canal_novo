@@ -7,22 +7,27 @@ import Testimonials from '@/components/Testimonials';
 import Contact from '@/components/Contact';
 import Footer from '@/components/Footer';
 import WhatsAppButton from '@/components/WhatsAppButton';
+import Cart from '@/components/Cart';
+import { CartProvider } from '@/contexts/CartContext';
 
 const Index = () => {
   return (
-    <div className="min-h-screen bg-background">
-      <Header />
-      <main>
-        <Hero />
-        <About />
-        <Services />
-        <ProductCatalog />
-        <Testimonials />
-        <Contact />
-      </main>
-      <Footer />
-      <WhatsAppButton />
-    </div>
+    <CartProvider>
+      <div className="min-h-screen bg-background">
+        <Header />
+        <main>
+          <Hero />
+          <ProductCatalog />
+          <About />
+          <Services />
+          <Testimonials />
+          <Contact />
+        </main>
+        <Footer />
+        <WhatsAppButton />
+        <Cart />
+      </div>
+    </CartProvider>
   );
 };
 
