@@ -1,6 +1,7 @@
 import { MapPin, Phone, Mail, Clock, Instagram, Facebook } from 'lucide-react';
 import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
+import whatsappIcon from '@/assets/whatsapp-icon.png';
 
 const Contact = () => {
   const sectionRef = useRef(null);
@@ -176,8 +177,9 @@ const Contact = () => {
                   href="https://wa.me/5527995059840"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="block w-full bg-white hover:bg-white/90 text-secondary px-4 sm:px-6 md:px-8 py-2.5 sm:py-3 md:py-4 rounded-lg font-semibold text-sm sm:text-base text-center transition-all duration-300 shadow-lg hover:shadow-xl touch-manipulation"
+                  className="flex items-center justify-center gap-2 w-full bg-white hover:bg-white/90 text-secondary px-4 sm:px-6 md:px-8 py-2.5 sm:py-3 md:py-4 rounded-lg font-semibold text-sm sm:text-base transition-all duration-300 shadow-lg hover:shadow-xl touch-manipulation"
                 >
+                  <img src={whatsappIcon} alt="WhatsApp" className="w-5 h-5 sm:w-6 sm:h-6" />
                   Falar no WhatsApp
                 </a>
                 <a

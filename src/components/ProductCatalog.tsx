@@ -1,9 +1,10 @@
 import { useState, useRef } from 'react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { ShoppingCart, Plus, Minus, MessageCircle } from 'lucide-react';
+import { ShoppingCart, Plus, Minus } from 'lucide-react';
 import { motion, AnimatePresence, useInView } from 'framer-motion';
 import { useCart } from '@/contexts/CartContext';
+import whatsappIcon from '@/assets/whatsapp-icon.png';
 
 interface Product {
   id: string;
@@ -218,7 +219,7 @@ const ProductCatalog = () => {
             whileHover={{ scale: 1.02, boxShadow: '0 12px 24px -8px rgba(0,0,0,0.2)' }}
             whileTap={{ scale: 0.98 }}
           >
-            <MessageCircle size={18} className="mr-2" />
+            <img src={whatsappIcon} alt="WhatsApp" className="w-5 h-5 mr-2" />
             Fale com um consultor
           </motion.a>
         </motion.div>

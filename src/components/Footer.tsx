@@ -1,5 +1,6 @@
 import { MapPin, Phone, Mail, Clock, Instagram, Facebook } from 'lucide-react';
 import logo from '@/assets/logo.png';
+import whatsappIcon from '@/assets/whatsapp-icon.png';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -72,7 +73,7 @@ const Footer = () => {
                 </span>
               </li>
               <li className="flex items-center gap-1.5 sm:gap-2 text-xs sm:text-sm md:text-base">
-                <Phone className="flex-shrink-0 text-white/80" size={14} />
+                <img src={whatsappIcon} alt="WhatsApp" className="w-4 h-4 flex-shrink-0" />
                 <a
                   href="https://wa.me/5527995059840"
                   target="_blank"
