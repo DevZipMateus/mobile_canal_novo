@@ -50,11 +50,13 @@ const Contact = () => {
 
   return (
     <section id="contato" className="section-padding relative overflow-hidden" ref={sectionRef}>
-      {/* Background Image */}
-      <div className="absolute inset-0 z-0" style={{ backgroundImage: `url(${bgContact})`, backgroundAttachment: 'fixed', backgroundSize: 'cover', backgroundPosition: 'center' }}>
+      <div 
+        className="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat md:bg-fixed"
+        style={{ backgroundImage: `url(${bgContact})` }}
+      >
         <div className="absolute inset-0 bg-background/75 backdrop-blur-[1px]" />
       </div>
-      <div className="container-custom px-4 sm:px-6 lg:px-8 relative z-10">
+      <div className="container-custom px-4 sm:px-6 lg:px-8 2xl:px-12 relative z-10">
         {/* Header */}
         <motion.div 
           className="text-center mb-8 sm:mb-10 md:mb-12 lg:mb-16"
@@ -62,15 +64,15 @@ const Contact = () => {
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.5 }}
         >
-          <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-2 sm:mb-3 md:mb-4 text-foreground">
+          <h2 className="text-2xl sm:text-3xl md:text-3xl lg:text-4xl 2xl:text-5xl font-bold mb-2 sm:mb-3 md:mb-4 text-foreground">
             Entre em contato
           </h2>
-          <p className="text-sm sm:text-base md:text-lg text-muted-foreground max-w-2xl mx-auto px-2">
+          <p className="text-sm sm:text-base md:text-lg 2xl:text-xl text-muted-foreground max-w-2xl 2xl:max-w-3xl mx-auto px-2">
             Estamos prontos para ajudar você a criar o lar dos seus sonhos
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 gap-6 sm:gap-8 md:gap-10 lg:gap-12">
+        <div className="grid md:grid-cols-2 gap-6 sm:gap-8 md:gap-10 lg:gap-12 2xl:gap-16">
           {/* Contact Info */}
           <motion.div 
             className="space-y-3 sm:space-y-4 md:space-y-5 lg:space-y-6"
@@ -83,28 +85,28 @@ const Contact = () => {
               return (
                 <motion.div
                   key={index}
-                  className="bg-card border border-border rounded-lg sm:rounded-xl p-3 sm:p-4 md:p-5 lg:p-6 card-hover card-glow shine-effect"
+                  className="bg-card border border-border rounded-lg sm:rounded-xl p-3 sm:p-4 md:p-5 lg:p-6 2xl:p-7 card-hover card-glow shine-effect"
                   variants={itemVariants}
                 >
                   <div className="flex gap-2.5 sm:gap-3 md:gap-4">
                     <div className="flex-shrink-0">
-                      <div className="w-9 h-9 sm:w-10 sm:h-10 md:w-12 md:h-12 bg-secondary/10 rounded-lg flex items-center justify-center">
-                        <Icon className="text-secondary" size={18} />
+                      <div className="w-10 h-10 sm:w-11 sm:h-11 md:w-12 md:h-12 2xl:w-14 2xl:h-14 bg-secondary/10 rounded-lg flex items-center justify-center">
+                        <Icon className="text-secondary w-4 h-4 sm:w-5 sm:h-5 2xl:w-6 2xl:h-6" />
                       </div>
                     </div>
                     <div className="min-w-0 flex-1">
-                      <h3 className="text-sm sm:text-base md:text-lg font-semibold mb-0.5 sm:mb-1 md:mb-2">{info.title}</h3>
+                      <h3 className="text-sm sm:text-base md:text-lg 2xl:text-xl font-semibold mb-0.5 sm:mb-1 md:mb-2">{info.title}</h3>
                       {info.link ? (
                         <a
                           href={info.link}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="text-xs sm:text-sm md:text-base text-muted-foreground hover:text-secondary transition-colors break-words"
+                          className="text-xs sm:text-sm md:text-base 2xl:text-lg text-muted-foreground hover:text-secondary transition-colors break-words"
                         >
                           {info.content}
                         </a>
                       ) : (
-                        <p className="text-xs sm:text-sm md:text-base text-muted-foreground">{info.content}</p>
+                        <p className="text-xs sm:text-sm md:text-base 2xl:text-lg text-muted-foreground">{info.content}</p>
                       )}
                     </div>
                   </div>
@@ -114,23 +116,23 @@ const Contact = () => {
 
             {/* Social Media */}
             <motion.div 
-              className="bg-card border border-border rounded-lg sm:rounded-xl p-3 sm:p-4 md:p-5 lg:p-6 card-hover card-glow shine-effect"
+              className="bg-card border border-border rounded-lg sm:rounded-xl p-3 sm:p-4 md:p-5 lg:p-6 2xl:p-7 card-hover card-glow shine-effect"
               variants={itemVariants}
             >
               <div className="flex gap-2.5 sm:gap-3 md:gap-4">
                 <div className="flex-shrink-0">
-                  <div className="w-9 h-9 sm:w-10 sm:h-10 md:w-12 md:h-12 bg-secondary/10 rounded-lg flex items-center justify-center">
-                    <Instagram className="text-secondary" size={18} />
+                  <div className="w-10 h-10 sm:w-11 sm:h-11 md:w-12 md:h-12 2xl:w-14 2xl:h-14 bg-secondary/10 rounded-lg flex items-center justify-center">
+                    <Instagram className="text-secondary w-4 h-4 sm:w-5 sm:h-5 2xl:w-6 2xl:h-6" />
                   </div>
                 </div>
                 <div className="min-w-0 flex-1">
-                  <h3 className="text-sm sm:text-base md:text-lg font-semibold mb-0.5 sm:mb-1 md:mb-2">Redes sociais</h3>
+                  <h3 className="text-sm sm:text-base md:text-lg 2xl:text-xl font-semibold mb-0.5 sm:mb-1 md:mb-2">Redes sociais</h3>
                   <div className="flex flex-col gap-1.5 sm:gap-2">
                     <a
                       href="https://www.instagram.com/mobilecanal?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-xs sm:text-sm md:text-base text-muted-foreground hover:text-secondary transition-colors"
+                      className="text-xs sm:text-sm md:text-base 2xl:text-lg text-muted-foreground hover:text-secondary transition-colors"
                     >
                       Instagram: @mobilecanal
                     </a>
@@ -138,7 +140,7 @@ const Contact = () => {
                       href="https://www.facebook.com/MobileCanalMagazine"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-xs sm:text-sm md:text-base text-muted-foreground hover:text-secondary transition-colors"
+                      className="text-xs sm:text-sm md:text-base 2xl:text-lg text-muted-foreground hover:text-secondary transition-colors"
                     >
                       Facebook: Mobile Canal Magazine
                     </a>
@@ -156,7 +158,7 @@ const Contact = () => {
             transition={{ duration: 0.6, delay: 0.2 }}
           >
             {/* Map */}
-            <div className="rounded-xl sm:rounded-2xl overflow-hidden shadow-lg h-[200px] xs:h-[250px] sm:h-[280px] md:h-[320px] lg:h-[350px]">
+            <div className="rounded-xl sm:rounded-2xl overflow-hidden shadow-lg h-[220px] xs:h-[260px] sm:h-[300px] md:h-[340px] lg:h-[380px] xl:h-[400px] 2xl:h-[440px]">
               <iframe 
                 src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d937.3857805524106!2d-40.87385598474257!3d-19.985707318707508!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xb9b5d1ffde43f5%3A0x3cd48c774810c18!2sMobile%20Canal%20Magazine!5e0!3m2!1spt-BR!2sbr!4v1758045475063!5m2!1spt-BR!2sbr" 
                 width="100%" 
@@ -170,11 +172,11 @@ const Contact = () => {
             </div>
 
             {/* CTA Card */}
-            <div className="bg-secondary rounded-xl sm:rounded-2xl p-4 sm:p-5 md:p-6 lg:p-8 text-secondary-foreground shadow-xl">
-              <h3 className="text-lg sm:text-xl md:text-2xl font-bold mb-2 sm:mb-3 md:mb-4">
+            <div className="bg-secondary rounded-xl sm:rounded-2xl p-4 sm:p-5 md:p-6 lg:p-8 2xl:p-10 text-secondary-foreground shadow-xl">
+              <h3 className="text-lg sm:text-xl md:text-2xl 2xl:text-3xl font-bold mb-2 sm:mb-3 md:mb-4">
                 Pronto para criar o lar dos seus sonhos?
               </h3>
-              <p className="text-sm sm:text-base md:text-lg mb-4 sm:mb-5 md:mb-6 text-secondary-foreground/90">
+              <p className="text-sm sm:text-base md:text-lg 2xl:text-xl mb-4 sm:mb-5 md:mb-6 text-secondary-foreground/90">
                 Venha nos visitar ou entre em contato para conhecer nossos produtos e condições especiais.
               </p>
               <div className="space-y-2 sm:space-y-3 md:space-y-4">
@@ -182,14 +184,14 @@ const Contact = () => {
                   href="https://wa.me/5527995059840"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center justify-center gap-2 w-full bg-white hover:bg-white/90 text-secondary px-4 sm:px-6 md:px-8 py-2.5 sm:py-3 md:py-4 rounded-lg font-semibold text-sm sm:text-base transition-all duration-300 shadow-lg hover:shadow-xl touch-manipulation"
+                  className="flex items-center justify-center gap-2 w-full bg-white hover:bg-white/90 text-secondary px-4 sm:px-6 md:px-8 py-3 sm:py-3.5 md:py-4 2xl:py-5 rounded-lg font-semibold text-sm sm:text-base 2xl:text-lg transition-all duration-300 shadow-lg hover:shadow-xl touch-manipulation"
                 >
                   <img src={whatsappIcon} alt="WhatsApp" className="w-5 h-5 sm:w-6 sm:h-6" />
                   Falar no WhatsApp
                 </a>
                 <a
                   href="tel:+5527995059840"
-                  className="block w-full bg-secondary-foreground/10 hover:bg-secondary-foreground/20 text-secondary-foreground border-2 border-secondary-foreground/60 hover:border-secondary-foreground px-4 sm:px-6 md:px-8 py-2.5 sm:py-3 md:py-4 rounded-lg font-semibold text-sm sm:text-base text-center transition-all duration-300 touch-manipulation"
+                  className="block w-full bg-secondary-foreground/10 hover:bg-secondary-foreground/20 text-secondary-foreground border-2 border-secondary-foreground/60 hover:border-secondary-foreground px-4 sm:px-6 md:px-8 py-3 sm:py-3.5 md:py-4 2xl:py-5 rounded-lg font-semibold text-sm sm:text-base 2xl:text-lg text-center transition-all duration-300 touch-manipulation"
                 >
                   Ligar agora
                 </a>

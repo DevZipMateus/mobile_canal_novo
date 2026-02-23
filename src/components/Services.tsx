@@ -79,10 +79,13 @@ const Services = () => {
 
   return (
     <section id="produtos" className="section-padding relative overflow-hidden" ref={sectionRef}>
-      <div className="absolute inset-0 z-0" style={{ backgroundImage: `url(${bgServices})`, backgroundAttachment: 'fixed', backgroundSize: 'cover', backgroundPosition: 'center' }}>
+      <div 
+        className="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat md:bg-fixed"
+        style={{ backgroundImage: `url(${bgServices})` }}
+      >
         <div className="absolute inset-0 bg-background/75 backdrop-blur-[1px]" />
       </div>
-      <div className="container-custom px-4 sm:px-6 lg:px-8 relative z-10">
+      <div className="container-custom px-4 sm:px-6 lg:px-8 2xl:px-12 relative z-10">
         {/* Header */}
         <motion.div 
           className="text-center mb-8 sm:mb-10 md:mb-12 lg:mb-16"
@@ -90,17 +93,17 @@ const Services = () => {
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.5 }}
         >
-          <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-2 sm:mb-3 md:mb-4 text-foreground">
+          <h2 className="text-2xl sm:text-3xl md:text-3xl lg:text-4xl 2xl:text-5xl font-bold mb-2 sm:mb-3 md:mb-4 text-foreground">
             Nossos produtos e serviços
           </h2>
-          <p className="text-sm sm:text-base md:text-lg text-muted-foreground max-w-2xl mx-auto px-2">
+          <p className="text-sm sm:text-base md:text-lg 2xl:text-xl text-muted-foreground max-w-2xl 2xl:max-w-3xl mx-auto px-2">
             Tudo para transformar sua casa em um lar aconchegante
           </p>
         </motion.div>
 
         {/* Services Cards */}
         <motion.div 
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 md:gap-6 lg:gap-8 mb-8 sm:mb-10 md:mb-12 lg:mb-16"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 md:gap-6 lg:gap-8 2xl:gap-10 mb-8 sm:mb-10 md:mb-12 lg:mb-16"
           variants={containerVariants}
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
@@ -110,23 +113,23 @@ const Services = () => {
             return (
               <motion.div
                 key={index}
-                className="bg-card border border-border rounded-lg sm:rounded-xl p-4 sm:p-5 md:p-6 lg:p-8 group cursor-pointer card-glow shine-effect icon-float"
+                className="bg-card border border-border rounded-lg sm:rounded-xl p-4 sm:p-5 md:p-6 lg:p-8 2xl:p-10 group cursor-pointer card-glow shine-effect icon-float"
                 variants={itemVariants}
                 whileHover={{ y: -8, boxShadow: '0 20px 40px -12px rgba(0,0,0,0.15)' }}
                 transition={{ type: 'spring', stiffness: 300 }}
               >
-                <div className="w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 lg:w-16 lg:h-16 bg-secondary/10 rounded-lg flex items-center justify-center mb-3 sm:mb-4 md:mb-5 lg:mb-6 group-hover:bg-secondary/20 transition-all duration-500 icon-float-target">
-                  <Icon className="text-secondary" size={22} />
+                <div className="w-11 h-11 sm:w-12 sm:h-12 md:w-14 md:h-14 lg:w-16 lg:h-16 2xl:w-20 2xl:h-20 bg-secondary/10 rounded-lg flex items-center justify-center mb-3 sm:mb-4 md:mb-5 lg:mb-6 group-hover:bg-secondary/20 transition-all duration-500 icon-float-target">
+                  <Icon className="text-secondary w-5 h-5 sm:w-6 sm:h-6 md:w-7 md:h-7 2xl:w-8 2xl:h-8" />
                 </div>
-                <h3 className="text-base sm:text-lg md:text-xl font-semibold mb-1.5 sm:mb-2 md:mb-3">{service.title}</h3>
-                <p className="text-xs sm:text-sm md:text-base text-muted-foreground">{service.description}</p>
+                <h3 className="text-base sm:text-lg md:text-xl 2xl:text-2xl font-semibold mb-1.5 sm:mb-2 md:mb-3">{service.title}</h3>
+                <p className="text-xs sm:text-sm md:text-base 2xl:text-lg text-muted-foreground">{service.description}</p>
               </motion.div>
             );
           })}
         </motion.div>
 
         {/* Products Hero */}
-        <div className="grid md:grid-cols-2 gap-6 sm:gap-8 md:gap-10 lg:gap-12 items-center mb-8 sm:mb-10 md:mb-12 lg:mb-16">
+        <div className="grid md:grid-cols-2 gap-6 sm:gap-8 md:gap-10 lg:gap-12 2xl:gap-16 items-center mb-8 sm:mb-10 md:mb-12 lg:mb-16">
           {/* Products Image */}
           <motion.div 
             className="relative"
@@ -138,7 +141,7 @@ const Services = () => {
               <img
                 src={productsImage}
                 alt="Móveis e decorações - Mobile Canal"
-                className="w-full h-[200px] xs:h-[250px] sm:h-[300px] md:h-[350px] lg:h-[400px] object-cover"
+                className="w-full h-[220px] xs:h-[260px] sm:h-[300px] md:h-[350px] lg:h-[420px] xl:h-[460px] 2xl:h-[520px] object-cover"
               />
             </div>
           </motion.div>
@@ -149,10 +152,10 @@ const Services = () => {
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.25 }}
           >
-            <h3 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold mb-3 sm:mb-4 md:mb-5 lg:mb-6">
+            <h3 className="text-xl sm:text-2xl md:text-2xl lg:text-3xl 2xl:text-4xl font-bold mb-3 sm:mb-4 md:mb-5 lg:mb-6">
               Encontre tudo para o seu lar
             </h3>
-            <p className="text-sm sm:text-base md:text-lg text-muted-foreground mb-4 sm:mb-5 md:mb-6 leading-relaxed">
+            <p className="text-sm sm:text-base md:text-lg 2xl:text-xl text-muted-foreground mb-4 sm:mb-5 md:mb-6 leading-relaxed">
               Oferecemos uma linha completa de móveis e decorações para todos os ambientes da sua casa. 
               Nossa equipe está pronta para ajudar você a escolher as melhores peças que combinam 
               qualidade, design e conforto.
@@ -161,7 +164,7 @@ const Services = () => {
               href="https://wa.me/5527995059840"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center w-full sm:w-auto bg-secondary hover:bg-secondary/90 text-secondary-foreground px-5 sm:px-6 md:px-8 py-3 sm:py-3.5 md:py-4 rounded-lg font-semibold text-sm sm:text-base transition-all duration-300 btn-shadow touch-manipulation"
+              className="inline-flex items-center justify-center w-full sm:w-auto bg-secondary hover:bg-secondary/90 text-secondary-foreground px-5 sm:px-6 md:px-8 2xl:px-10 py-3 sm:py-3.5 md:py-4 2xl:py-5 rounded-lg font-semibold text-sm sm:text-base 2xl:text-lg transition-all duration-300 btn-shadow touch-manipulation"
               whileHover={{ scale: 1.02, boxShadow: '0 12px 24px -8px rgba(0,0,0,0.2)' }}
               whileTap={{ scale: 0.98 }}
             >
@@ -173,12 +176,12 @@ const Services = () => {
 
         {/* Product Categories Accordion */}
         <motion.div 
-          className="max-w-4xl mx-auto"
+          className="max-w-4xl 2xl:max-w-5xl mx-auto"
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.5, delay: 0.35 }}
         >
-          <h3 className="text-lg sm:text-xl md:text-2xl font-bold mb-4 sm:mb-5 md:mb-6 text-center">Categorias de produtos</h3>
+          <h3 className="text-lg sm:text-xl md:text-2xl 2xl:text-3xl font-bold mb-4 sm:mb-5 md:mb-6 text-center">Categorias de produtos</h3>
           <Accordion type="multiple" className="space-y-2 sm:space-y-3 md:space-y-4">
             {productCategories.map((category, index) => {
               const Icon = category.icon;
@@ -186,27 +189,27 @@ const Services = () => {
                 <AccordionItem 
                   key={index} 
                   value={`item-${index}`}
-                  className="bg-card border border-border rounded-lg sm:rounded-xl px-3 sm:px-4 md:px-6 data-[state=open]:shadow-md transition-shadow"
+                  className="bg-card border border-border rounded-lg sm:rounded-xl px-3 sm:px-4 md:px-6 2xl:px-8 data-[state=open]:shadow-md transition-shadow"
                 >
                   <AccordionTrigger className="hover:no-underline py-3 sm:py-4 md:py-5">
                     <div className="flex items-center gap-2.5 sm:gap-3 md:gap-4">
-                      <div className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 bg-secondary/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                      <div className="w-9 h-9 sm:w-10 sm:h-10 md:w-12 md:h-12 2xl:w-14 2xl:h-14 bg-secondary/10 rounded-lg flex items-center justify-center flex-shrink-0">
                         <Icon className="text-secondary" size={18} />
                       </div>
-                      <span className="text-sm sm:text-base md:text-lg font-semibold text-left">{category.title}</span>
+                      <span className="text-sm sm:text-base md:text-lg 2xl:text-xl font-semibold text-left">{category.title}</span>
                     </div>
                   </AccordionTrigger>
                   <AccordionContent className="pb-3 sm:pb-4 md:pb-5">
-                    <ul className="space-y-1.5 sm:space-y-2 pl-10 sm:pl-12 md:pl-14 lg:pl-16">
+                    <ul className="space-y-1.5 sm:space-y-2 pl-12 sm:pl-14 md:pl-16 2xl:pl-20">
                       {category.items.map((item, itemIndex) => (
                         <motion.li 
                           key={itemIndex} 
-                          className="text-xs sm:text-sm md:text-base text-muted-foreground flex items-center gap-2"
+                          className="text-xs sm:text-sm md:text-base 2xl:text-lg text-muted-foreground flex items-center gap-2"
                           initial={{ opacity: 0, x: -10 }}
                           animate={{ opacity: 1, x: 0 }}
                           transition={{ delay: itemIndex * 0.04 }}
                         >
-                          <span className="w-1 h-1 sm:w-1.5 sm:h-1.5 bg-secondary rounded-full flex-shrink-0"></span>
+                          <span className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-secondary rounded-full flex-shrink-0"></span>
                           {item}
                         </motion.li>
                       ))}

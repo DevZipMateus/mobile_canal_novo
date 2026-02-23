@@ -16,13 +16,10 @@ interface Product {
 }
 
 const products: Product[] = [
-  // Estofados
   { id: '1', name: 'Estofado Corvette 2.30m Bege', image: '/imagens/estofado_corvette_2.30m bege.png', category: 'Estofados' },
   { id: '2', name: 'Estofado Tókio 2 Módulos e Chaise Direita Bege', image: '/imagens/estofado_tokio_2_modulos_e_chaise_direita_bege.png', category: 'Estofados' },
   { id: '3', name: 'Estofado Toretto 2.90m Bege', image: '/imagens/estofado_toretto_2.90m bege.png', category: 'Estofados' },
   { id: '4', name: 'Estofado Toronto 2.50m Linho', image: '/imagens/estofado_toronto_2.50m linho.png', category: 'Estofados' },
-  
-  // Sala de Estar
   { id: '5', name: 'Aparador Dune Off White Nature', image: '/imagens/aparador_dune_off_white_nature.png', category: 'Sala de Estar' },
   { id: '6', name: 'Buffet Jurerê Off White Matte Freijó', image: '/imagens/buffet_jurere_off_white_matte_freijo.png', category: 'Sala de Estar' },
   { id: '7', name: 'Cristaleira Dune Nature Off White', image: '/imagens/cristaleira_dune_nature_off_white.png', category: 'Sala de Estar' },
@@ -30,26 +27,18 @@ const products: Product[] = [
   { id: '9', name: 'Mesa de Centro Tela Sintética 90cm Freijó', image: '/imagens/mesa_de_centro_tela_sintetica_90cm_freijo.png', category: 'Sala de Estar' },
   { id: '10', name: 'Banqueta Classic Tela Facto Marrom Nature', image: '/imagens/banqueta_classic_tela_facto_marrom_nature.png', category: 'Sala de Estar' },
   { id: '11', name: 'Cadeira Oiti Natuame Madeira Linho Bege', image: '/imagens/cadeira_oiti_natuame_madeira_linho_bege.png', category: 'Sala de Estar' },
-  
-  // Quarto
   { id: '12', name: 'Cabeceira Concept Estofada com Painel Frisado Freijó', image: '/imagens/cabeceira_concept_estofada_com_2_painel_frisado_freijo_bloucle_areia_e_2_mesas_de_cabeceira_concept.png', category: 'Quarto' },
   { id: '13', name: 'Cabeceira New Himalaia Cumaru', image: '/imagens/cabeceira_new_himalaia_cumaru.png', category: 'Quarto' },
   { id: '14', name: 'Roupeiro Arezzo 6 Portas Cinamomo Off White', image: '/imagens/roupeiro_arezzo_6_portas_cinamomo_off_white.png', category: 'Quarto' },
   { id: '15', name: 'Roupeiro Portugal 6 Portas Cinamomo Off White', image: '/imagens/roupeiro_portugal_6_portas_cinamomo_off_white.png', category: 'Quarto' },
   { id: '16', name: 'Mesa de Cabeceira Império Cinamomo Off White', image: '/imagens/mesa_de_cabeceira_imperio_cinamomo_off_white.png', category: 'Quarto' },
   { id: '17', name: 'Colchão Mannes Ottawa', image: '/imagens/colchao_mannes_otawa.png', category: 'Quarto' },
-  
-  // Home Theater
   { id: '18', name: 'Home Luminare c/ Duas Torres Vidro Reflecta com LED', image: '/imagens/home_luminare_c_duas_torres_vidro_reflecta_com_led_off_white_naturale.png', category: 'Home Theater' },
   { id: '19', name: 'Rack Painel Santorini com LED Tauari Off White Fosco', image: '/imagens/rack_painel_santorini_com_led_tauari_off_white_fosco.png', category: 'Home Theater' },
   { id: '20', name: 'Conjunto Nobre Ripado 230 Painel Naturalle', image: '/imagens/conjunto_nobre_ripado_230_painel_naturalle_e_rack_requinte_naturalle_off_white_pes_madeira.png', category: 'Home Theater' },
   { id: '21', name: 'Painel Ripado Supremo 2.3 Cinamomo', image: '/imagens/painel_ripado_supremo_2.3 cinamomo.png', category: 'Home Theater' },
-  
-  // Escritório
   { id: '22', name: 'Escrivaninha Prism Off White Cinamomo', image: '/imagens/escrivaninha_prism_off_white_cinamomo.png', category: 'Escritório' },
   { id: '23', name: 'Mesa de Estudo Sevilha Off White Naturalle', image: '/imagens/mesa_de_estudo_sevilha_off_white_naturalle.png', category: 'Escritório' },
-  
-  // Infantil
   { id: '24', name: 'Linha Baby Biscoito', image: '/imagens/linha_baby_biscoito.png', category: 'Infantil' },
 ];
 
@@ -84,10 +73,13 @@ const ProductCatalog = () => {
 
   return (
     <section id="vitrine" className="section-padding relative overflow-hidden" ref={sectionRef}>
-      <div className="absolute inset-0 z-0" style={{ backgroundImage: `url(${bgVitrine})`, backgroundAttachment: 'fixed', backgroundSize: 'cover', backgroundPosition: 'center' }}>
+      <div 
+        className="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat md:bg-fixed"
+        style={{ backgroundImage: `url(${bgVitrine})` }}
+      >
         <div className="absolute inset-0 bg-background/75 backdrop-blur-[1px]" />
       </div>
-      <div className="container-custom px-4 sm:px-6 lg:px-8 relative z-10">
+      <div className="container-custom px-4 sm:px-6 lg:px-8 2xl:px-12 relative z-10">
         {/* Header */}
         <motion.div 
           className="text-center mb-6 sm:mb-8 md:mb-10 lg:mb-12"
@@ -95,17 +87,17 @@ const ProductCatalog = () => {
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.5 }}
         >
-          <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-2 sm:mb-3 md:mb-4 text-foreground">
+          <h2 className="text-2xl sm:text-3xl md:text-3xl lg:text-4xl 2xl:text-5xl font-bold mb-2 sm:mb-3 md:mb-4 text-foreground">
             Vitrine
           </h2>
-          <p className="text-sm sm:text-base md:text-lg text-muted-foreground max-w-2xl mx-auto px-2">
+          <p className="text-sm sm:text-base md:text-lg 2xl:text-xl text-muted-foreground max-w-2xl 2xl:max-w-3xl mx-auto px-2">
             Confira nossa seleção de móveis e encontre o ideal para sua casa
           </p>
         </motion.div>
 
         {/* Category Filter */}
         <motion.div 
-          className="flex flex-wrap justify-center gap-1.5 sm:gap-2 md:gap-3 mb-6 sm:mb-8 md:mb-10 lg:mb-12"
+          className="flex flex-wrap justify-center gap-2 sm:gap-2.5 md:gap-3 mb-6 sm:mb-8 md:mb-10 lg:mb-12"
           initial={{ opacity: 0, y: 15 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.5, delay: 0.08 }}
@@ -119,7 +111,7 @@ const ProductCatalog = () => {
               <Button
                 variant={activeCategory === category ? 'default' : 'outline'}
                 onClick={() => setActiveCategory(category)}
-                className="text-xs sm:text-sm md:text-base px-2.5 sm:px-3 md:px-4 py-1.5 sm:py-2 h-auto touch-manipulation"
+                className="text-xs sm:text-sm md:text-base 2xl:text-lg px-3 sm:px-4 md:px-5 py-2 sm:py-2.5 h-auto touch-manipulation"
               >
                 {category}
               </Button>
@@ -129,7 +121,7 @@ const ProductCatalog = () => {
 
         {/* Products Grid */}
         <motion.div 
-          className="grid grid-cols-1 xs:grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4 md:gap-5 lg:gap-6"
+          className="grid grid-cols-2 xs:grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 2xl:grid-cols-5 gap-3 sm:gap-4 md:gap-5 lg:gap-6 2xl:gap-7"
           layout
         >
           <AnimatePresence mode="popLayout">
@@ -163,8 +155,8 @@ const ProductCatalog = () => {
                       </span>
                     </div>
                   </motion.div>
-                  <CardContent className="p-2.5 sm:p-3 md:p-4">
-                    <h3 className="font-semibold text-xs sm:text-sm md:text-base mb-2 sm:mb-3 line-clamp-2 min-h-[2rem] sm:min-h-[2.5rem]">
+                  <CardContent className="p-2.5 sm:p-3 md:p-4 2xl:p-5">
+                    <h3 className="font-semibold text-xs sm:text-sm md:text-base 2xl:text-lg mb-2 sm:mb-3 line-clamp-2 min-h-[2rem] sm:min-h-[2.5rem] 2xl:min-h-[3rem]">
                       {product.name}
                     </h3>
                     
@@ -172,17 +164,17 @@ const ProductCatalog = () => {
                     <div className="flex items-center justify-center gap-2 mb-2 sm:mb-3">
                       <button
                         onClick={() => updateQuantity(product.id, -1)}
-                        className="w-7 h-7 sm:w-8 sm:h-8 flex items-center justify-center bg-muted hover:bg-muted/80 rounded-md transition-colors touch-manipulation"
+                        className="w-7 h-7 sm:w-8 sm:h-8 2xl:w-9 2xl:h-9 flex items-center justify-center bg-muted hover:bg-muted/80 rounded-md transition-colors touch-manipulation"
                         aria-label="Diminuir quantidade"
                       >
                         <Minus size={14} />
                       </button>
-                      <span className="w-8 text-center text-sm font-medium">
+                      <span className="w-8 text-center text-sm 2xl:text-base font-medium">
                         {getQuantity(product.id)}
                       </span>
                       <button
                         onClick={() => updateQuantity(product.id, 1)}
-                        className="w-7 h-7 sm:w-8 sm:h-8 flex items-center justify-center bg-muted hover:bg-muted/80 rounded-md transition-colors touch-manipulation"
+                        className="w-7 h-7 sm:w-8 sm:h-8 2xl:w-9 2xl:h-9 flex items-center justify-center bg-muted hover:bg-muted/80 rounded-md transition-colors touch-manipulation"
                         aria-label="Aumentar quantidade"
                       >
                         <Plus size={14} />
@@ -196,7 +188,7 @@ const ProductCatalog = () => {
                     >
                       <Button
                         onClick={() => handleAddToCart(product)}
-                        className="w-full bg-secondary hover:bg-secondary/90 text-secondary-foreground text-xs sm:text-sm h-8 sm:h-9 md:h-10 touch-manipulation"
+                        className="w-full bg-secondary hover:bg-secondary/90 text-secondary-foreground text-xs sm:text-sm 2xl:text-base h-8 sm:h-9 md:h-10 2xl:h-11 touch-manipulation"
                       >
                         <ShoppingCart size={14} className="mr-1.5 sm:mr-2" />
                         Adicionar ao carrinho
@@ -211,19 +203,19 @@ const ProductCatalog = () => {
 
         {/* CTA */}
         <motion.div 
-          className="text-center mt-6 sm:mt-8 md:mt-10 lg:mt-12"
+          className="text-center mt-8 sm:mt-10 md:mt-12 lg:mt-14"
           initial={{ opacity: 0, y: 15 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.5, delay: 0.25 }}
         >
-          <p className="text-xs sm:text-sm md:text-base text-muted-foreground mb-3 sm:mb-4">
+          <p className="text-xs sm:text-sm md:text-base 2xl:text-lg text-muted-foreground mb-3 sm:mb-4">
             Não encontrou o que procura? Temos muito mais em nossa loja!
           </p>
           <motion.a
             href="https://wa.me/5527995059840"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center justify-center bg-secondary hover:bg-secondary/90 text-secondary-foreground px-5 sm:px-6 md:px-8 py-2.5 sm:py-3 md:py-4 rounded-lg font-semibold text-sm sm:text-base transition-all duration-300 touch-manipulation"
+            className="inline-flex items-center justify-center bg-secondary hover:bg-secondary/90 text-secondary-foreground px-5 sm:px-6 md:px-8 2xl:px-10 py-2.5 sm:py-3 md:py-4 2xl:py-5 rounded-lg font-semibold text-sm sm:text-base 2xl:text-lg transition-all duration-300 touch-manipulation"
             whileHover={{ scale: 1.02, boxShadow: '0 12px 24px -8px rgba(0,0,0,0.2)' }}
             whileTap={{ scale: 0.98 }}
           >
@@ -234,8 +226,8 @@ const ProductCatalog = () => {
 
         {/* Image Expand Dialog */}
         <Dialog open={!!expandedProduct} onOpenChange={(open) => !open && setExpandedProduct(null)}>
-          <DialogContent className="max-w-[90vw] max-h-[90vh] sm:max-w-2xl md:max-w-3xl p-2 sm:p-4 bg-white">
-            <DialogTitle className="text-sm sm:text-base md:text-lg font-semibold text-center">
+          <DialogContent className="max-w-[92vw] max-h-[90vh] sm:max-w-2xl md:max-w-3xl 2xl:max-w-4xl p-3 sm:p-4 md:p-6 bg-white">
+            <DialogTitle className="text-sm sm:text-base md:text-lg 2xl:text-xl font-semibold text-center">
               {expandedProduct?.name}
             </DialogTitle>
             {expandedProduct && (
