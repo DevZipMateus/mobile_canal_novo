@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import { useRef } from 'react';
 import aboutImage from '@/assets/about-showroom.jpg';
+import bgAbout from '@/assets/bg-about.jpg';
 
 const About = () => {
   const sectionRef = useRef(null);
@@ -32,8 +33,12 @@ const About = () => {
   };
 
   return (
-    <section id="sobre" className="section-padding bg-muted/30" ref={sectionRef}>
-      <div className="container-custom px-4 sm:px-6 lg:px-8">
+    <section id="sobre" className="section-padding relative overflow-hidden" ref={sectionRef}>
+      <div className="absolute inset-0 z-0">
+        <img src={bgAbout} alt="" className="w-full h-full object-cover" />
+        <div className="absolute inset-0 bg-background/90 backdrop-blur-[2px]" />
+      </div>
+      <div className="container-custom px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid md:grid-cols-2 gap-6 sm:gap-8 md:gap-10 lg:gap-16 items-center">
           {/* Image */}
           <motion.div 
