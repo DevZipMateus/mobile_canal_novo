@@ -51,11 +51,13 @@ const Testimonials = () => {
 
   return (
     <section id="depoimentos" className="section-padding relative overflow-hidden" ref={sectionRef}>
-      {/* Background Image */}
-      <div className="absolute inset-0 z-0" style={{ backgroundImage: `url(${bgTestimonials})`, backgroundAttachment: 'fixed', backgroundSize: 'cover', backgroundPosition: 'center' }}>
+      <div 
+        className="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat md:bg-fixed"
+        style={{ backgroundImage: `url(${bgTestimonials})` }}
+      >
         <div className="absolute inset-0 bg-background/75 backdrop-blur-[1px]" />
       </div>
-      <div className="container-custom px-4 sm:px-6 lg:px-8 relative z-10">
+      <div className="container-custom px-4 sm:px-6 lg:px-8 2xl:px-12 relative z-10">
         {/* Header */}
         <motion.div 
           className="text-center mb-8 sm:mb-10 md:mb-12 lg:mb-16"
@@ -63,17 +65,17 @@ const Testimonials = () => {
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.5 }}
         >
-          <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-2 sm:mb-3 md:mb-4 text-foreground">
+          <h2 className="text-2xl sm:text-3xl md:text-3xl lg:text-4xl 2xl:text-5xl font-bold mb-2 sm:mb-3 md:mb-4 text-foreground">
             O que nossos clientes dizem
           </h2>
-          <p className="text-sm sm:text-base md:text-lg text-muted-foreground max-w-2xl mx-auto px-2">
+          <p className="text-sm sm:text-base md:text-lg 2xl:text-xl text-muted-foreground max-w-2xl 2xl:max-w-3xl mx-auto px-2">
             A satisfação dos nossos clientes é nossa maior recompensa
           </p>
         </motion.div>
 
         {/* Testimonials Grid */}
         <motion.div 
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 md:gap-6 lg:gap-8"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 md:gap-6 lg:gap-8 2xl:gap-10"
           variants={containerVariants}
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
@@ -81,7 +83,7 @@ const Testimonials = () => {
           {testimonials.map((testimonial, index) => (
             <motion.div
               key={index}
-              className="bg-card border border-border rounded-lg sm:rounded-xl p-4 sm:p-5 md:p-6 lg:p-8 relative group card-glow shine-effect"
+              className="bg-card border border-border rounded-lg sm:rounded-xl p-4 sm:p-5 md:p-6 lg:p-8 2xl:p-10 relative group card-glow shine-effect"
               variants={cardVariants}
               whileHover={{ y: -8, boxShadow: '0 20px 40px -12px rgba(0,0,0,0.15)' }}
               transition={{ type: 'spring', stiffness: 300 }}
@@ -97,24 +99,24 @@ const Testimonials = () => {
                     animate={isInView ? { opacity: 1, scale: 1 } : {}}
                     transition={{ delay: 0.2 + i * 0.08 }}
                   >
-                    <Star className="text-amber-400 fill-amber-400" size={14} />
+                    <Star className="text-amber-400 fill-amber-400 w-3.5 h-3.5 sm:w-4 sm:h-4 2xl:w-5 2xl:h-5" />
                   </motion.div>
                 ))}
               </div>
 
               {/* Text */}
-              <p className="text-xs sm:text-sm md:text-base text-muted-foreground mb-3 sm:mb-4 leading-relaxed">
+              <p className="text-xs sm:text-sm md:text-base 2xl:text-lg text-muted-foreground mb-3 sm:mb-4 md:mb-5 leading-relaxed">
                 "{testimonial.text}"
               </p>
 
               {/* Author */}
               <div className="flex items-center gap-2 sm:gap-3">
-                <div className="w-8 h-8 sm:w-9 sm:h-9 md:w-10 md:h-10 bg-secondary/10 rounded-full flex items-center justify-center group-hover:bg-secondary/20 transition-colors">
-                  <span className="text-secondary font-semibold text-xs sm:text-sm">
+                <div className="w-8 h-8 sm:w-9 sm:h-9 md:w-10 md:h-10 2xl:w-12 2xl:h-12 bg-secondary/10 rounded-full flex items-center justify-center group-hover:bg-secondary/20 transition-colors">
+                  <span className="text-secondary font-semibold text-xs sm:text-sm 2xl:text-base">
                     {testimonial.name.split(' ').map(n => n[0]).join('')}
                   </span>
                 </div>
-                <span className="font-semibold text-sm sm:text-base text-foreground">{testimonial.name}</span>
+                <span className="font-semibold text-sm sm:text-base 2xl:text-lg text-foreground">{testimonial.name}</span>
               </div>
             </motion.div>
           ))}

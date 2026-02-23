@@ -19,7 +19,6 @@ const Header = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Close menu on resize to desktop
   useEffect(() => {
     const handleResize = () => {
       if (window.innerWidth >= 1024) {
@@ -31,7 +30,6 @@ const Header = () => {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
-  // Prevent body scroll when mobile menu is open
   useEffect(() => {
     if (isMobileMenuOpen) {
       document.body.style.overflow = 'hidden';
@@ -96,25 +94,25 @@ const Header = () => {
         isScrolled ? 'bg-white shadow-md' : 'bg-white/95 backdrop-blur-sm'
       }`}
     >
-      <nav className="container-custom px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-14 sm:h-16 md:h-18 lg:h-20">
+      <nav className="container-custom px-4 sm:px-6 lg:px-8 2xl:px-12">
+        <div className="flex items-center justify-between h-14 sm:h-16 md:h-18 lg:h-20 2xl:h-24">
           {/* Logo */}
           <a href="#inicio" className="flex items-center space-x-2 flex-shrink-0" onClick={(e) => handleNavClick(e, '#inicio')}>
             <img
               src={logo}
               alt="Mobile Canal - Logo"
-              className="h-8 sm:h-10 md:h-12 lg:h-14 xl:h-16 w-auto object-contain"
+              className="h-8 sm:h-10 md:h-12 lg:h-14 xl:h-16 2xl:h-20 w-auto object-contain"
             />
           </a>
 
           {/* Desktop Menu */}
-          <div className="hidden lg:flex items-center space-x-4 xl:space-x-6 2xl:space-x-8">
+          <div className="hidden lg:flex items-center space-x-4 xl:space-x-6 2xl:space-x-10">
             {menuItems.map((item) => (
               <a
                 key={item.href}
                 href={item.href}
                 onClick={(e) => handleNavClick(e, item.href)}
-                className="text-foreground hover:text-foreground/70 font-medium text-sm xl:text-base transition-colors duration-300 relative group whitespace-nowrap"
+                className="text-foreground hover:text-foreground/70 font-medium text-sm xl:text-base 2xl:text-lg transition-colors duration-300 relative group whitespace-nowrap"
               >
                 {item.label}
                 <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-foreground transition-all duration-300 group-hover:w-full" />
@@ -124,7 +122,7 @@ const Header = () => {
               href="https://wa.me/5527995059840"
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-secondary hover:bg-secondary/90 text-white px-4 xl:px-5 2xl:px-6 py-2 xl:py-2.5 rounded-lg font-medium text-sm xl:text-base transition-all duration-300 btn-shadow hover:shadow-xl whitespace-nowrap"
+              className="bg-secondary hover:bg-secondary/90 text-white px-4 xl:px-5 2xl:px-8 py-2 xl:py-2.5 2xl:py-3 rounded-lg font-medium text-sm xl:text-base 2xl:text-lg transition-all duration-300 btn-shadow hover:shadow-xl whitespace-nowrap"
             >
               Entre em contato
             </a>
@@ -157,7 +155,7 @@ const Header = () => {
                     key={item.href}
                     href={item.href}
                     onClick={(e) => handleNavClick(e, item.href)}
-                    className="text-foreground hover:text-foreground/70 hover:bg-muted font-medium transition-colors duration-300 py-3 px-2 rounded-lg text-base touch-manipulation"
+                    className="text-foreground hover:text-foreground/70 hover:bg-muted font-medium transition-colors duration-300 py-3.5 px-3 rounded-lg text-base touch-manipulation"
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: index * 0.05 }}
@@ -169,7 +167,7 @@ const Header = () => {
                   href="https://wa.me/5527995059840"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="bg-secondary hover:bg-secondary/90 text-white px-6 py-3.5 rounded-lg font-medium transition-all duration-300 text-center text-base mt-2 touch-manipulation"
+                  className="bg-secondary hover:bg-secondary/90 text-white px-6 py-4 rounded-lg font-medium transition-all duration-300 text-center text-base mt-2 touch-manipulation"
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: menuItems.length * 0.05 }}
