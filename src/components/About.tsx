@@ -152,12 +152,12 @@ const About = () => {
               return (
                 <motion.div 
                   key={index} 
-                  className="bg-card border border-border rounded-lg sm:rounded-xl p-3 sm:p-4 md:p-5 lg:p-6 text-center card-hover group cursor-pointer"
+                  className="bg-card border border-border rounded-lg sm:rounded-xl p-3 sm:p-4 md:p-5 lg:p-6 text-center card-hover group cursor-pointer card-glow shine-effect icon-float"
                   variants={itemVariants}
-                  whileHover={{ scale: 1.03, y: -3 }}
+                  whileHover={{ scale: 1.05, y: -6 }}
                   transition={{ type: 'spring', stiffness: 300 }}
                 >
-                  <div className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 bg-secondary/10 rounded-lg flex items-center justify-center mx-auto mb-2 sm:mb-3 group-hover:bg-secondary/20 transition-colors">
+                  <div className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 bg-secondary/10 rounded-lg flex items-center justify-center mx-auto mb-2 sm:mb-3 group-hover:bg-secondary/20 transition-all duration-500 icon-float-target">
                     <Icon className="text-secondary" size={16} />
                   </div>
                   <h4 className="font-semibold text-xs sm:text-sm md:text-base mb-0.5 sm:mb-1">{value.title}</h4>

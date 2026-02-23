@@ -133,13 +133,14 @@ const ProductCatalog = () => {
               <motion.div
                 key={product.id}
                 layout
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
+                initial={{ opacity: 0, scale: 0.9, y: 20 }}
+                animate={{ opacity: 1, scale: 1, y: 0 }}
                 exit={{ opacity: 0, scale: 0.9 }}
-                transition={{ duration: 0.25 }}
+                transition={{ duration: 0.35, delay: Math.min(filteredProducts.indexOf(product) * 0.05, 0.4) }}
+                whileHover={{ y: -6 }}
               >
                 <Card 
-                  className="group overflow-hidden bg-card border-border hover:shadow-lg transition-all duration-300 h-full"
+                  className="group overflow-hidden bg-card border-border hover:shadow-lg transition-all duration-300 h-full card-glow shine-effect icon-float"
                 >
                   <motion.div 
                     className="relative aspect-square overflow-hidden bg-white cursor-pointer"

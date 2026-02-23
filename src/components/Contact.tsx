@@ -78,7 +78,7 @@ const Contact = () => {
               return (
                 <motion.div
                   key={index}
-                  className="bg-card border border-border rounded-lg sm:rounded-xl p-3 sm:p-4 md:p-5 lg:p-6 card-hover"
+                  className="bg-card border border-border rounded-lg sm:rounded-xl p-3 sm:p-4 md:p-5 lg:p-6 card-hover card-glow shine-effect"
                   variants={itemVariants}
                 >
                   <div className="flex gap-2.5 sm:gap-3 md:gap-4">
@@ -109,7 +109,7 @@ const Contact = () => {
 
             {/* Social Media */}
             <motion.div 
-              className="bg-card border border-border rounded-lg sm:rounded-xl p-3 sm:p-4 md:p-5 lg:p-6 card-hover"
+              className="bg-card border border-border rounded-lg sm:rounded-xl p-3 sm:p-4 md:p-5 lg:p-6 card-hover card-glow shine-effect"
               variants={itemVariants}
             >
               <div className="flex gap-2.5 sm:gap-3 md:gap-4">
