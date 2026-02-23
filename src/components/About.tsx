@@ -36,7 +36,7 @@ const About = () => {
     <section id="sobre" className="section-padding relative overflow-hidden" ref={sectionRef}>
       <div className="absolute inset-0 z-0">
         <img src={bgAbout} alt="" className="w-full h-full object-cover" />
-        <div className="absolute inset-0 bg-background/90 backdrop-blur-[2px]" />
+        <div className="absolute inset-0 bg-background/75 backdrop-blur-[1px]" />
       </div>
       <div className="container-custom px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid md:grid-cols-2 gap-6 sm:gap-8 md:gap-10 lg:gap-16 items-center">
