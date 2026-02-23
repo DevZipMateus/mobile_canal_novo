@@ -5,6 +5,7 @@ import { useInView } from 'framer-motion';
 import { useRef } from 'react';
 import productsImage from '@/assets/services-furniture.jpg';
 import whatsappIcon from '@/assets/whatsapp-icon.png';
+import bgServices from '@/assets/bg-services.jpg';
 
 const Services = () => {
   const sectionRef = useRef(null);
@@ -77,8 +78,12 @@ const Services = () => {
   };
 
   return (
-    <section id="produtos" className="section-padding bg-background" ref={sectionRef}>
-      <div className="container-custom px-4 sm:px-6 lg:px-8">
+    <section id="produtos" className="section-padding relative overflow-hidden" ref={sectionRef}>
+      <div className="absolute inset-0 z-0">
+        <img src={bgServices} alt="" className="w-full h-full object-cover" />
+        <div className="absolute inset-0 bg-background/90 backdrop-blur-[2px]" />
+      </div>
+      <div className="container-custom px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Header */}
         <motion.div 
           className="text-center mb-8 sm:mb-10 md:mb-12 lg:mb-16"

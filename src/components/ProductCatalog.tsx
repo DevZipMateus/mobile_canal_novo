@@ -6,6 +6,7 @@ import { ShoppingCart, Plus, Minus } from 'lucide-react';
 import { motion, AnimatePresence, useInView } from 'framer-motion';
 import { useCart } from '@/contexts/CartContext';
 import whatsappIcon from '@/assets/whatsapp-icon.png';
+import bgVitrine from '@/assets/bg-vitrine.jpg';
 
 interface Product {
   id: string;
@@ -82,8 +83,12 @@ const ProductCatalog = () => {
   };
 
   return (
-    <section id="vitrine" className="section-padding bg-muted/30" ref={sectionRef}>
-      <div className="container-custom px-4 sm:px-6 lg:px-8">
+    <section id="vitrine" className="section-padding relative overflow-hidden" ref={sectionRef}>
+      <div className="absolute inset-0 z-0">
+        <img src={bgVitrine} alt="" className="w-full h-full object-cover" />
+        <div className="absolute inset-0 bg-background/90 backdrop-blur-[2px]" />
+      </div>
+      <div className="container-custom px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Header */}
         <motion.div 
           className="text-center mb-6 sm:mb-8 md:mb-10 lg:mb-12"
