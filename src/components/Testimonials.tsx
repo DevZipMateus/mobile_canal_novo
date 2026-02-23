@@ -1,6 +1,7 @@
 import { Star, Quote } from 'lucide-react';
 import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
+import bgTestimonials from '@/assets/bg-testimonials.jpg';
 
 const Testimonials = () => {
   const sectionRef = useRef(null);
@@ -49,8 +50,13 @@ const Testimonials = () => {
   };
 
   return (
-    <section id="depoimentos" className="section-padding bg-muted/30" ref={sectionRef}>
-      <div className="container-custom px-4 sm:px-6 lg:px-8">
+    <section id="depoimentos" className="section-padding relative overflow-hidden" ref={sectionRef}>
+      {/* Background Image */}
+      <div className="absolute inset-0 z-0">
+        <img src={bgTestimonials} alt="" className="w-full h-full object-cover" />
+        <div className="absolute inset-0 bg-background/90 backdrop-blur-[2px]" />
+      </div>
+      <div className="container-custom px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Header */}
         <motion.div 
           className="text-center mb-8 sm:mb-10 md:mb-12 lg:mb-16"
