@@ -1,6 +1,7 @@
 import { useState, useRef } from 'react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
+import { Dialog, DialogContent, DialogTitle } from '@/components/ui/dialog';
 import { ShoppingCart, Plus, Minus } from 'lucide-react';
 import { motion, AnimatePresence, useInView } from 'framer-motion';
 import { useCart } from '@/contexts/CartContext';
@@ -56,6 +57,7 @@ const categories = ['Todos', 'Estofados', 'Sala de Estar', 'Quarto', 'Home Theat
 const ProductCatalog = () => {
   const [activeCategory, setActiveCategory] = useState('Todos');
   const [quantities, setQuantities] = useState<Record<string, number>>({});
+  const [expandedProduct, setExpandedProduct] = useState<Product | null>(null);
   const sectionRef = useRef(null);
   const isInView = useInView(sectionRef, { once: true, margin: '-50px' });
   const { addToCart } = useCart();
@@ -140,9 +142,10 @@ const ProductCatalog = () => {
                   className="group overflow-hidden bg-card border-border hover:shadow-lg transition-all duration-300 h-full"
                 >
                   <motion.div 
-                    className="relative aspect-square overflow-hidden bg-white"
+                    className="relative aspect-square overflow-hidden bg-white cursor-pointer"
                     whileHover={{ scale: 1.01 }}
                     transition={{ duration: 0.25 }}
+                    onClick={() => setExpandedProduct(product)}
                   >
                     <img
                       src={product.image}
@@ -223,6 +226,22 @@ const ProductCatalog = () => {
             Fale com um consultor
           </motion.a>
         </motion.div>
+
+        {/* Image Expand Dialog */}
+        <Dialog open={!!expandedProduct} onOpenChange={(open) => !open && setExpandedProduct(null)}>
+          <DialogContent className="max-w-[90vw] max-h-[90vh] sm:max-w-2xl md:max-w-3xl p-2 sm:p-4 bg-white">
+            <DialogTitle className="text-sm sm:text-base md:text-lg font-semibold text-center">
+              {expandedProduct?.name}
+            </DialogTitle>
+            {expandedProduct && (
+              <img
+                src={expandedProduct.image}
+                alt={expandedProduct.name}
+                className="w-full max-h-[70vh] object-contain"
+              />
+            )}
+          </DialogContent>
+        </Dialog>
       </div>
     </section>
   );
