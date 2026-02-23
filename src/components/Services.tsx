@@ -106,12 +106,12 @@ const Services = () => {
             return (
               <motion.div
                 key={index}
-                className="bg-card border border-border rounded-lg sm:rounded-xl p-4 sm:p-5 md:p-6 lg:p-8 group cursor-pointer"
+                className="bg-card border border-border rounded-lg sm:rounded-xl p-4 sm:p-5 md:p-6 lg:p-8 group cursor-pointer card-glow shine-effect icon-float"
                 variants={itemVariants}
-                whileHover={{ y: -5, boxShadow: '0 15px 30px -10px rgba(0,0,0,0.12)' }}
+                whileHover={{ y: -8, boxShadow: '0 20px 40px -12px rgba(0,0,0,0.15)' }}
                 transition={{ type: 'spring', stiffness: 300 }}
               >
-                <div className="w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 lg:w-16 lg:h-16 bg-secondary/10 rounded-lg flex items-center justify-center mb-3 sm:mb-4 md:mb-5 lg:mb-6 group-hover:bg-secondary/20 transition-colors">
+                <div className="w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 lg:w-16 lg:h-16 bg-secondary/10 rounded-lg flex items-center justify-center mb-3 sm:mb-4 md:mb-5 lg:mb-6 group-hover:bg-secondary/20 transition-all duration-500 icon-float-target">
                   <Icon className="text-secondary" size={22} />
                 </div>
                 <h3 className="text-base sm:text-lg md:text-xl font-semibold mb-1.5 sm:mb-2 md:mb-3">{service.title}</h3>

@@ -76,9 +76,9 @@ const Testimonials = () => {
           {testimonials.map((testimonial, index) => (
             <motion.div
               key={index}
-              className="bg-card border border-border rounded-lg sm:rounded-xl p-4 sm:p-5 md:p-6 lg:p-8 relative group"
+              className="bg-card border border-border rounded-lg sm:rounded-xl p-4 sm:p-5 md:p-6 lg:p-8 relative group card-glow shine-effect"
               variants={cardVariants}
-              whileHover={{ y: -5, boxShadow: '0 15px 30px -10px rgba(0,0,0,0.12)' }}
+              whileHover={{ y: -8, boxShadow: '0 20px 40px -12px rgba(0,0,0,0.15)' }}
               transition={{ type: 'spring', stiffness: 300 }}
             >
               <Quote className="absolute top-3 right-3 sm:top-4 sm:right-4 text-secondary/20 group-hover:text-secondary/30 transition-colors" size={24} />

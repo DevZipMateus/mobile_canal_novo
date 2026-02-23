@@ -144,6 +144,45 @@ All colors MUST be HSL.
   .card-hover {
     @apply transition-all duration-300 hover:shadow-lg hover:-translate-y-1;
   }
+
+  .card-glow {
+    @apply transition-all duration-500;
+  }
+  .card-glow:hover {
+    box-shadow: 0 0 20px -5px hsl(var(--secondary) / 0.15), 0 15px 30px -10px hsl(0 0% 0% / 0.1);
+    border-color: hsl(var(--secondary) / 0.3);
+  }
+
+  .icon-float {
+    @apply transition-transform duration-500;
+  }
+  .icon-float:hover .icon-float-target {
+    transform: translateY(-3px) scale(1.1);
+    transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+
+  .shine-effect {
+    position: relative;
+    overflow: hidden;
+  }
+  .shine-effect::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      hsl(0 0% 100% / 0.08),
+      transparent
+    );
+    transition: left 0.6s ease;
+  }
+  .shine-effect:hover::after {
+    left: 100%;
+  }
   
   /* Touch-friendly tap targets for mobile */
   .touch-manipulation {
