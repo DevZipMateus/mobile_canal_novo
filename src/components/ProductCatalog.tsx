@@ -188,10 +188,10 @@ const ProductCatalog = () => {
                     >
                       <Button
                         onClick={() => handleAddToCart(product)}
-                        className="w-full bg-secondary hover:bg-secondary/90 text-secondary-foreground text-xs sm:text-sm 2xl:text-base h-8 sm:h-9 md:h-10 2xl:h-11 touch-manipulation"
+                        className="w-full bg-secondary hover:bg-secondary/90 text-secondary-foreground text-[10px] sm:text-xs md:text-sm 2xl:text-base h-7 sm:h-8 md:h-9 2xl:h-11 px-1.5 sm:px-3 touch-manipulation"
                       >
-                        <ShoppingCart size={14} className="mr-1.5 sm:mr-2" />
-                        Adicionar ao carrinho
+                        <ShoppingCart size={12} className="mr-1 sm:mr-1.5 shrink-0" />
+                        <span className="truncate">Adicionar ao carrinho</span>
                       </Button>
                     </motion.div>
                   </CardContent>
