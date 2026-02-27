@@ -33,16 +33,16 @@ const products: Product[] = [
   { id: '15', name: 'Roupeiro Portugal 6 Portas Cinamomo Off White', image: '/imagens/roupeiro_portugal_6_portas_cinamomo_off_white.png', category: 'Quarto' },
   { id: '16', name: 'Mesa de Cabeceira Império Cinamomo Off White', image: '/imagens/mesa_de_cabeceira_imperio_cinamomo_off_white.png', category: 'Quarto' },
   { id: '17', name: 'Colchão Mannes Ottawa', image: '/imagens/colchao_mannes_otawa.png', category: 'Quarto' },
-  { id: '18', name: 'Home Luminare c/ Duas Torres Vidro Reflecta com LED', image: '/imagens/home_luminare_c_duas_torres_vidro_reflecta_com_led_off_white_naturale.png', category: 'Home Theater' },
-  { id: '19', name: 'Rack Painel Santorini com LED Tauari Off White Fosco', image: '/imagens/rack_painel_santorini_com_led_tauari_off_white_fosco.png', category: 'Home Theater' },
-  { id: '20', name: 'Conjunto Nobre Ripado 230 Painel Naturalle', image: '/imagens/conjunto_nobre_ripado_230_painel_naturalle_e_rack_requinte_naturalle_off_white_pes_madeira.png', category: 'Home Theater' },
-  { id: '21', name: 'Painel Ripado Supremo 2.3 Cinamomo', image: '/imagens/painel_ripado_supremo_2.3 cinamomo.png', category: 'Home Theater' },
+  { id: '18', name: 'Home Luminare c/ Duas Torres Vidro Reflecta com LED', image: '/imagens/home_luminare_c_duas_torres_vidro_reflecta_com_led_off_white_naturale.png', category: 'Painéis' },
+  { id: '19', name: 'Rack Painel Santorini com LED Tauari Off White Fosco', image: '/imagens/rack_painel_santorini_com_led_tauari_off_white_fosco.png', category: 'Painéis' },
+  { id: '20', name: 'Conjunto Nobre Ripado 230 Painel Naturalle', image: '/imagens/conjunto_nobre_ripado_230_painel_naturalle_e_rack_requinte_naturalle_off_white_pes_madeira.png', category: 'Painéis' },
+  { id: '21', name: 'Painel Ripado Supremo 2.3 Cinamomo', image: '/imagens/painel_ripado_supremo_2.3 cinamomo.png', category: 'Painéis' },
   { id: '22', name: 'Escrivaninha Prism Off White Cinamomo', image: '/imagens/escrivaninha_prism_off_white_cinamomo.png', category: 'Escritório' },
   { id: '23', name: 'Mesa de Estudo Sevilha Off White Naturalle', image: '/imagens/mesa_de_estudo_sevilha_off_white_naturalle.png', category: 'Escritório' },
   { id: '24', name: 'Linha Baby Biscoito', image: '/imagens/linha_baby_biscoito.png', category: 'Infantil' },
 ];
 
-const categories = ['Todos', 'Estofados', 'Sala de Estar', 'Quarto', 'Home Theater', 'Escritório', 'Infantil'];
+const categories = ['Todos', 'Estofados', 'Sala de Estar', 'Quarto', 'Painéis', 'Escritório', 'Infantil'];
 
 const ProductCatalog = () => {
   const [activeCategory, setActiveCategory] = useState('Todos');
