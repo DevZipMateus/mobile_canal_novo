@@ -1,8 +1,11 @@
 import { ArrowRight } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { useNavigate } from 'react-router-dom';
 import heroImage from '@/assets/hero-furniture.jpg';
 
 const Hero = () => {
+  const navigate = useNavigate();
+
   return (
     <section id="inicio" className="relative min-h-[100svh] flex items-center pt-14 sm:pt-16 md:pt-18 lg:pt-20">
       {/* Background Image with Overlay */}
@@ -65,10 +68,10 @@ const Hero = () => {
               <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" size={18} />
             </a>
             <a
-              href="#vitrine"
+              href="/vitrine"
               onClick={(e) => {
                 e.preventDefault();
-                document.querySelector('#vitrine')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                navigate('/vitrine');
               }}
               className="inline-flex items-center justify-center bg-white/10 hover:bg-white/20 text-white border-2 border-white/60 hover:border-white px-5 sm:px-6 md:px-7 lg:px-8 2xl:px-10 py-3 sm:py-3.5 md:py-4 2xl:py-5 rounded-lg font-semibold text-sm sm:text-base md:text-base 2xl:text-lg transition-all duration-300 backdrop-blur-sm touch-manipulation"
             >

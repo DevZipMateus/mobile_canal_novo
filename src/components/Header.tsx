@@ -45,6 +45,7 @@ const Header = () => {
     { label: 'Início', href: '#inicio' },
     { label: 'Sobre', href: '#sobre' },
     { label: 'Produtos', href: '#produtos' },
+    { label: 'Vitrine', href: '/vitrine', isRoute: true },
     { label: 'Depoimentos', href: '#depoimentos' },
     { label: 'Contato', href: '#contato' },
   ];
@@ -108,15 +109,30 @@ const Header = () => {
           {/* Desktop Menu */}
           <div className="hidden lg:flex items-center space-x-4 xl:space-x-6 2xl:space-x-10">
             {menuItems.map((item) => (
-              <a
-                key={item.href}
-                href={item.href}
-                onClick={(e) => handleNavClick(e, item.href)}
-                className="text-foreground hover:text-foreground/70 font-medium text-sm xl:text-base 2xl:text-lg transition-colors duration-300 relative group whitespace-nowrap"
-              >
-                {item.label}
-                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-foreground transition-all duration-300 group-hover:w-full" />
-              </a>
+              item.isRoute ? (
+                <a
+                  key={item.href}
+                  href={item.href}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    navigate(item.href);
+                  }}
+                  className="text-foreground hover:text-foreground/70 font-medium text-sm xl:text-base 2xl:text-lg transition-colors duration-300 relative group whitespace-nowrap"
+                >
+                  {item.label}
+                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-foreground transition-all duration-300 group-hover:w-full" />
+                </a>
+              ) : (
+                <a
+                  key={item.href}
+                  href={item.href}
+                  onClick={(e) => handleNavClick(e, item.href)}
+                  className="text-foreground hover:text-foreground/70 font-medium text-sm xl:text-base 2xl:text-lg transition-colors duration-300 relative group whitespace-nowrap"
+                >
+                  {item.label}
+                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-foreground transition-all duration-300 group-hover:w-full" />
+                </a>
+              )
             ))}
             <a
               href="https://wa.me/5527995059840"
@@ -154,7 +170,15 @@ const Header = () => {
                   <motion.a
                     key={item.href}
                     href={item.href}
-                    onClick={(e) => handleNavClick(e, item.href)}
+                    onClick={(e) => {
+                      if (item.isRoute) {
+                        e.preventDefault();
+                        setIsMobileMenuOpen(false);
+                        navigate(item.href);
+                      } else {
+                        handleNavClick(e, item.href);
+                      }
+                    }}
                     className="text-foreground hover:text-foreground/70 hover:bg-muted font-medium transition-colors duration-300 py-3.5 px-3 rounded-lg text-base touch-manipulation"
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
