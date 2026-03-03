@@ -2,8 +2,9 @@ import { useState, useRef } from 'react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Dialog, DialogContent, DialogTitle } from '@/components/ui/dialog';
-import { ShoppingCart, Plus, Minus } from 'lucide-react';
+import { ShoppingCart, Plus, Minus, ExternalLink } from 'lucide-react';
 import { motion, AnimatePresence, useInView } from 'framer-motion';
+import { useNavigate } from 'react-router-dom';
 import { useCart } from '@/contexts/CartContext';
 import whatsappIcon from '@/assets/whatsapp-icon.png';
 import bgVitrine from '@/assets/bg-vitrine.jpg';
@@ -45,6 +46,7 @@ const products: Product[] = [
 const categories = ['Todos', 'Estofados', 'Sala de Estar', 'Quarto', 'Painéis', 'Escritório', 'Infantil'];
 
 const ProductCatalog = () => {
+  const navigate = useNavigate();
   const [activeCategory, setActiveCategory] = useState('Todos');
   const [quantities, setQuantities] = useState<Record<string, number>>({});
   const [expandedProduct, setExpandedProduct] = useState<Product | null>(null);
@@ -199,6 +201,34 @@ const ProductCatalog = () => {
               </motion.div>
             ))}
           </AnimatePresence>
+        </motion.div>
+
+        {/* Vitrine Banner */}
+        <motion.div
+          className="mt-8 sm:mt-10 md:mt-12 lg:mt-14 rounded-2xl overflow-hidden relative"
+          initial={{ opacity: 0, y: 15 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.5, delay: 0.2 }}
+        >
+          <div className="bg-secondary text-secondary-foreground px-6 sm:px-8 md:px-12 py-8 sm:py-10 md:py-14 flex flex-col md:flex-row items-center justify-between gap-5 md:gap-8">
+            <div className="text-center md:text-left max-w-xl">
+              <h3 className="text-xl sm:text-2xl md:text-3xl 2xl:text-4xl font-bold mb-2 sm:mb-3">
+                Explore nossa Vitrine Completa
+              </h3>
+              <p className="text-secondary-foreground/80 text-sm sm:text-base md:text-lg 2xl:text-xl leading-relaxed">
+                Descubra centenas de produtos com preços, fotos detalhadas e condições especiais. Tudo em um só lugar!
+              </p>
+            </div>
+            <motion.button
+              onClick={() => navigate('/vitrine')}
+              className="inline-flex items-center justify-center bg-white text-secondary hover:bg-white/90 px-6 sm:px-8 md:px-10 py-3 sm:py-4 rounded-lg font-semibold text-sm sm:text-base md:text-lg transition-all duration-300 whitespace-nowrap touch-manipulation"
+              whileHover={{ scale: 1.03, boxShadow: '0 12px 24px -8px rgba(0,0,0,0.25)' }}
+              whileTap={{ scale: 0.97 }}
+            >
+              <ExternalLink size={18} className="mr-2" />
+              Acessar Vitrine
+            </motion.button>
+          </div>
         </motion.div>
 
         {/* CTA */}
